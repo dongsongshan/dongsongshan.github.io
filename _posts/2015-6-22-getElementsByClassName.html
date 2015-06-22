@@ -9,11 +9,14 @@ title: getElementsByClassName用法
  function getElementsByClassName(node,classname){
 	if(node.getElementsByClassName){
 		return node.getelementsByClassName(classname);
-	}else{
-		//var results=[];
+	}
+	else
+	{
+		// var results=[];
 		var results=new Array;
 		var elems=node.getElementsByTagName('*');
-		for(var i=0 ; i<elems.length ; i++){
+		for ( var i=0 ; i< elems.length ; i++)
+		{
 
 			//if(elems[i].className=classname){
 			//	 results.push(elems[i]);
