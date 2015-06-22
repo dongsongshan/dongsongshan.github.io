@@ -1,0 +1,34 @@
+---
+layout: default
+title: getElementsByClassName用法
+---
+
+<p>HTML5 dom 中的新方法，兼容老版本的浏览器，做法如下</p>
+
+<pre>
+ function getElementsByClassName(node,classname){
+	if(node.getElementsByClassName){
+		return node.getelementsByClassName(classname);
+	}else{
+		//var results=[];
+		var results=new Array;
+		var elems=node.getElementsByTagName('*');
+		for(var i=0 ; i<elems.length ; i++){
+
+			//if(elems[i].className=classname){
+			//	 results.push(elems[i]);
+			//}
+
+			if(elems[i].className.indexOf(classname)!=-1){
+				 results[results.length]=elems[i];
+			}
+		}
+		return results;
+	}
+ }
+</pre>
+
+<p>代码中注释的是我自己写的，不知道对不对，以后检查</p>
+
+
+<p>{{ page.date | date_to_string }}</p>
