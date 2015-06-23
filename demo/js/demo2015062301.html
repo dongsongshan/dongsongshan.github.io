@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>属性操作demo1</title>
+	<style>
+	#show{width: 300px; height: 300px; border: 1px solid #ccc;}
+	</style>
+	<script>
+	window.onload=function(){
+		var oShow=document.getElementById('show');
+		var oTuhao=document.getElementById('tuhao');
+		var oText=document.getElementById('text1');
+		var oBtn=document.getElementById('btn1');
+
+		oBtn.onclick=function(){
+			if(oText.value==''){
+				oText.placeholder="注意：请输入内容。"
+				alert('请输入内容');
+			}else{
+				//oShow.innerHTML=oShow.innerHTML+oTuhao.innerHTML+oText.value+"<br/>";
+				oShow.innerHTML+=oTuhao.innerHTML+oText.value+"<br/>";
+				oText.value='';
+			}
+		}
+	}
+	</script>
+</head>
+<body>
+	demo1
+	<div id="show"></div><br/>
+	<span id="tuhao">土豪:</span>
+	<input type="text" id="text1">
+	<input type="button" id="btn1" value="发送">
+</body>
+</html>
