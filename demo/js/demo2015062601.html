@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	*{margin:0px; padding:0px;font-size:12px;}
+	input[type="button"]{width:50px;height:28px; line-height: 28px; border: 1px solid #ddd; background-color: #eee;margin-bottom: 1px;}
+	ul{list-style: none;  display: none; /*width: auto;*/ }
+	li{/*float:left;*/ border: 1px solid #ddd; border-bottom: 0px;  height: 30px; line-height: 30px; width: 70px; }
+	li.bline{border-bottom: 1px solid #ddd;}
+	li a{display: block;  text-decoration: none; color: #000; padding:0px 10px;}
+	li a:hover{background-color: #ddd;}
+	</style>
+	<script>
+	window.onload=function(){
+		var oView=document.getElementById('view');
+		var oBtn=document.getElementById('btn1');
+		var oUl=document.getElementById('ul1');
+		//给元素添加的点击事件，
+		// var onOff=true;
+		// oBtn.onclick=function(){
+		// 	if(onOff){
+		// 		oUl.style.display='block';
+		// 		onOff=!onOff;
+		// 	}else{
+		// 		oUl.style.display='none';
+		// 		onOff=!onOff;
+		// 	}
+		// }
+
+		//给元素添加的经过事件
+		oView.onmouseover=function(){
+			oUl.style.display='block';
+		}
+		oView.onmouseout=function(){
+			oUl.style.display='none';
+		}
+	}
+	</script>
+</head>
+<body>
+<div id="view" style="width:500px; margin:20px auto;">
+	<input type="button" value="按钮" id="btn1">
+	<ul id="ul1">
+		<li><a href="">标题</a></li>
+		<li><a href="">标题</a></li>
+		<li><a href="">标题</a></li>
+		<li class="bline"><a href="">标题</a></li>
+	</ul>
+</div>
+</body>
+</html>
