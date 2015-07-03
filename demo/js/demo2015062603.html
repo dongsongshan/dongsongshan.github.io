@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>拖拽原理</title>
+	<style>
+	#green{width: 100px; height: 100px; background-color: green; position: absolute; }
+	#red{width: 100px; height: 100px; background-color: red; position: absolute; left: 100px; top: 100px;}
+
+
+
+	</style>
+	<script>
+window.onload=function(){
+	var oGreen=document.getElementById('green');
+	oGreen.onmousedown=function(ev){
+		var ev=ev||event;
+		var disX=ev.clientX-this.offsetLeft;
+		var disY=ev.clientY-this.offsetTop;
+
+		document.onmousemove=function(ev){
+			var ev=ev||event;
+			oGreen.style.left=ev.clientX-disX +'px';
+			oGreen.style.top=ev.clientY-disY +'px';
+
+		}
+		document.onmouseup=function(){
+			document.onmousemove=document.onmouseup=null;
+		}
+
+	}
+}
+	</script>
+</head>
+<body>
+	<div id="green"></div>
+	<div id="red"></div>
+</body>
+</html>
