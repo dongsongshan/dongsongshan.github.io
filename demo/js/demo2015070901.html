@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>TAB切换</title>
+	<style>
+	*{margin: 0px; padding:0px;}
+	#tab_con{width: 500px; height: 400px; margin:50px auto; border: 1px solid #000; overflow: hidden;}
+	#header{width: 500px; height: 50px;position: relative;border-bottom: 1px solid #000;}
+	#header ul{position: absolute; left: -1px;top:0px;width: 508px; }
+	#header ul li{list-style: none; width: 98px; padding:0px 1px; height: 51px; line-height: 50px; text-align: center; float: left; background-color: #ccc; border-bottom: 1px solid #000; }
+
+	#header ul li.active{width: 100px; height: 51px; border-left: 1px solid #000; border-right: 1px solid #000; border-bottom: 0px solid #fff; background-color: #fff;}
+
+	#content{width: 500px; height: 350px;}
+	#content ul{}
+	#content ul li{list-style: none; width: 500px; height:350px; background-color: #fff;  display: none; }
+	#content ul li.block{display: block;}
+	</style>
+	<script>
+	window.onload=function(){
+		var oTab=document.getElementById('tab_con');
+		var oHeader=document.getElementById('header');
+		var aHli=oHeader.getElementsByTagName('li');
+
+		var oContent=document.getElementById('content');
+		var aCli=oContent.getElementsByTagName('li');
+
+		for(var i=0; i<aHli.length; i++){
+			aHli[i].index=i;
+			aHli[i].onclick=function(){
+				for(var j=0; j<aCli.length; j++){
+					aHli[j].className='';
+				 	aCli[j].className='';
+				}
+				this.className='active';
+				aCli[this.index].className='block';
+			}
+		}
+
+	}
+
+	</script>
+
+
+
+
+</head>
+<body>
+	<div id="tab_con">
+		<div id="header">
+			<ul>
+				<li class="active">导航1</li>
+				<li>导航2</li>
+				<li>导航3</li>
+				<li>导航4</li>
+				<li>导航5</li>
+			</ul>
+		</div>
+		<div id="content">
+			<ul>
+				<li>内容1</li>
+				<li class="block">内容2</li>
+				<li>内容3</li>
+				<li>内容4</li>
+				<li>内容5</li>
+			</ul>
+		</div>
+
+	</div>
+</body>
+</html>
