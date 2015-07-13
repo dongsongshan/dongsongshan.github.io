@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>踩黑块</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<style>
+	*{margin: 0;padding: 0;}
+	#view{width:300px; height: 300px;  border: 1px solid #333; position: relative; overflow: hidden;}
+	#box{width: 300px; height: 300px; /*border: 1px solid red;*/ position: absolute; top: -200px; left: 50%; margin-left: -150px;}
+	.row{width: 300px; height: 75px;}
+	.cell{width: 74px; height: 74px; margin-left: 1px; margin-bottom: 1px; background-color: #ccc; float: left;}
+	.black{background-color: #000;}
+	#replay{width: 80px;height: 80px; border-radius: 80px; border: 1px solid #000; line-height: 80px; text-align: center; margin:10px auto 0px; display: none;}
+	</style>
+	<script>
+window.onload=function(){
+	var oView=document.getElementById('view');
+	var oBox=document.getElementById('box');
+	var oFen=document.getElementById('fen');
+	var oReplay=document.getElementById('replay');
+	var timer=null;
+	var num=0;
+	var speed=2;
+	var status=1; // 1,游戏正常， 0，游戏失败 
+
+	//这是游戏视图居中
+	var diswidht=document.body.clientWidth-oView.offsetWidth;
+	oView.style.left=diswidht/2+'px';
+
+	init();
+
+	function init(){
+		for(var i=0; i<4; i++){
+			crow();
+		}
+
+		oView.onclick=function(ev){
+			if(ev.target.className.indexOf('black')==-1){
+				fail();
+			}else{
+				if(status==1){
+					ev.target.className='cell';
+					ev.target.parentNode.pass=1;
+					num++;
+					oFen.innerHTML=num;
+					if(num==10){
+						speed=3;
+					}else if(num==40){
+						speed=4;
+					}else if(num==70) {
+						speed=5;
+					}else if(num==80) {
+						speed=5;
+					}else if(num==90){
+						alert('你还挺牛逼，恭喜你通关了！')
+					}
+				}else{
+					alert("游戏已经结束");
+				}
+				
+			}
+		}
+	}
+
+
+	Move();
+
+	function crow(){
+		var oRow=cdiv('row');
+		var arr=['cell','cell','cell','cell'];
+		arr[sn()]='cell black';
+		for(var i=0; i<4; i++){
+			var ocell=cdiv(arr[i]);
+			oRow.appendChild(ocell);
+		}
+		if(oBox.chilren==0){
+			oBox.appendChild(oRow);
+		}else{
+			oBox.insertBefore(oRow,oBox.childNodes[0]);
+		}
+	}
+
+//获取1-4中随机的一位数字
+	function sn(){
+		return Math.floor(Math.random()*4)
+
+	}
+
+	function cdiv(className){
+		var oDiv=document.createElement('div');
+		oDiv.className=className;
+		return oDiv;
+	}
+
+	function Move(){
+		clearInterval(timer);
+		timer=setInterval(function(){
+			var top=oBox.offsetTop;
+			oBox.style.top=oBox.offsetTop+speed+'px';
+
+			if(top+speed>0){
+				top=0;
+			}else{
+				top=top+speed;
+			}
+			
+			if(top==0){
+			oBox.style.top='-75px';
+			crow();
+				if(oBox.children.length==6){
+					oBox.removeChild(oBox.children[oBox.children.length-1]);
+				}
+			}else if(top==speed-75){
+				var rows=oBox.children;
+				var len=rows.length-1;
+				if((rows.length==5) && (rows[len].pass !== 1)){
+					fail();
+				}
+			}
+			
+		},30)
+		
+	}
+//游戏结束
+	function fail(){
+		alert('你输了！');
+		clearInterval(timer);
+		status=0;
+		oReplay.style.display='block';
+		document.title="我居然猜到了"+num+"个黑块，太好玩了，大家一起来呀";
+	}
+
+	oReplay.onclick=function(){
+		window.location.reload();
+	}
+
+
+
+}
+	</script>
+</head>
+<body>
+<div style="line-height:50px; text-align:center; font-weight: bold; "><span>您的得分：</span><span id="fen">0</span></div>
+<div id="view">
+	
+	<div id="box">
+	</div>
+</div>
+<div id="replay">再玩一次</div>
+<div style="display:none;"><script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?17e330e3bc9f0488652d6993c7d2e9a5";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script></div>
+
+
+
+</body>
+</html>
