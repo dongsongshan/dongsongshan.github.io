@@ -6,21 +6,59 @@ title: mysql基础知识
 <p>mysql的登陆</p>
 <pre>
  mysql -u root -p
-</pre>
-<p>返回</p>
-<pre>
 Enter password：
 </pre>
-<p>输入密码即可登陆</p>
-
 <p>mysql的退出</p>
 <pre>
-	// 下面四种方法任选其一
-	exit
-	quit
-	\q
-	Ctrl+c
+// 下面四种方法任选其一
+exit
+quit
+\q
+Ctrl+c
 </pre>
+
+<p>修改mysql的命令提示符</p>
+<pre>
+有两种方式设置提示符，我常用第二种.
+\D,表示完整的日期
+\d,表示当前数据表
+\h,当前服务器
+\u,当前用户
+1，登陆前设置提示符
+mysql -uroot -proot --prompt \h
+2,登陆后设置提示符
+prompt \u@\h \d
+</pre>
+
+<p>mysql常用命令以及规范</p>
+<pre>
+SELECT VERSION(); //查询当前服务器版本
+SELECT NOW();     //查询当前日期时间
+SELECT USER();    //查询当前用户
+
+规范
+1，关键字函数名称全部大写
+2，数据库名，数据表明，字段名全部小写
+3，sql语句必须以分号结尾
+</pre>
+
+<p>操作数据库</p>
+<pre>
+创建数据库
+CREATE {DATABASE | SCHEMA} [IF NOT EXISTS] db_name [DEFAULT] CHARACTER SET[=]charset_name;
+显示所有数据库
+SHOW DATABASES;
+修改数据库
+ALTER DATABASE db_name CHARACTER SET utf8;
+查看数据库的编码格式
+SHOW CREATE DATABASE db_name;
+删除数据库
+DROP DATABASE [IF EXISTS] db_name;
+</pre>
+
+
+
+
 
 
 
