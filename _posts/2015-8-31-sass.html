@@ -1,0 +1,35 @@
+---
+layout: default
+title: sass基础知识
+---
+
+<p>sass的编译</p>
+<pre>
+//单文件编译
+sass <要编译的Sass文件路径>/style.scss : <要输出CSS文件路径>/style.css
+//多文件编译
+sass sass/ : css/
+//自动编译
+sass --watch sass/style.scss : css/style.css
+</pre>
+
+<p>四种不同样式风格的输出方法</p>
+<pre>
+嵌套输出方式 nested
+展开输出方式 expanded
+紧凑输出方式 compact
+压缩输出方式 compressed
+// 可以这样使用
+sass --watch sass:css --style compact
+</pre>
+
+<p>声明变量</p>
+<pre>
+//直接用$符号声明变量,注意变量和值之间是分号：而不是等号=
+$color:red;
+$width:100px;
+</pre>
+
+
+
+<p>{{ page.date | date_to_string }}</p>
