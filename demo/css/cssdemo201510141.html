@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+  body{margin: 0px; padding: 0px;}
+  .container{
+    width:1000px; height:500px;border:1px solid red; margin: 0px auto; padding-top: 100px; }
+  .box{width: 1200px; height: 300px; border: 1px solid yellowgreen; margin-left: -100px;}
+
+  </style>
+</head>
+<body>
+  <!-- 父级的固定宽度是1000， 子元素宽度是1200，超过1000 可以用margin-left的负数属性值，把子元素调整，已达到居中目的 -->
+  <div class="container">
+    <div class="box"></div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+  body{margin: 0; background-color: #333; color: #999;}
+  .container{width: 1000px; margin: 0px auto;}
+  .box {width: 300px; height: 60px; padding: 50px; border: 50px solid #ff8888; }
+  .box1 {box-sizing: content-box;}
+  .box2 {box-sizing: border-box; }
+  h3{color:#ff8888;}
+  b{color:#ffffff;}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h3>前戏</h3>
+    <p>说到 IE 的 bug，在 IE6 以前的版本中，<b>IE</b> 对盒模型的解析出现一些问题，跟其它浏览器不同，将 <b>border 与 padding 都包含在 width 之内</b>。而另外一些浏览器则与它相反，是不包括 border 和 padding 的。
+    在我们开发的过程中会发现，有时候，如果对页面中的大区域进行设置时，将 border、padding 计算到 width 和 height 之内，反而更灵活。但 W3C 的 CSS2.1 规范却规定了他们并不能被包含其中。考虑到这个问题，css3 中引入了一个新的属性：box-sizing，它具有“content-box”和”border-box“两个值。
+    </p>
+    <h3>box-sizing:content-box</h3>
+    <p>当我们设置 box-sizing: content-box; 时，浏览器对盒模型的解释遵从我们之前认识到的 W3C 标准，当它定义 width 和 height 时，它的宽度不包括 border 和 padding。</p>
+    <div class="box box1">
+      内容
+    </div>
+    <h3>box-sizing:border-box</h3>
+    <p>当我们设置 box-sizing: border-box; 时，浏览器对盒模型的解释与 IE6 之前的版本相同，当它定义 width 和 height 时，border 和 padding 则是被包含在宽高之内的。内容的宽和高可以通过定义的“width”和 “height”减去相应方向的“padding”和“border”的宽度得到。内容的宽和高必须保证不能为负，必要时将自动增大该元素 border box 的尺寸以使其内容的宽或高最小为 0。</p>
+</p>
+    <div class="box box2">
+      内容区域
+    </div>
+
+
+  </div>
+</body>
+</html>
