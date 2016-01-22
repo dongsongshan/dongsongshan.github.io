@@ -7,7 +7,6 @@
   {"url":"http://www.xbiao.com/","pic":"http://placehold.it/150x150/f00/fff","number":"500"},
   {"url":"http://www.xbiao.com/","pic":"http://placehold.it/150x150/f00/fff","number":"500"},
   {"url":"http://www.xbiao.com/","pic":"http://placehold.it/150x150/f00/fff","number":"500"},
-  {"url":"http://www.xbiao.com/","pic":"http://placehold.it/150x150/f00/fff","number":"500"}
   ],
   "1":[{"url":"http://www.xbiao.com/","pic":"http://placehold.it/150x150/f00/fff","number":"500"},
   {"url":"http://www.xbiao.com/","pic":"http://placehold.it/150x150/f00/fff","number":"500"},
@@ -17,7 +16,6 @@
   {"url":"http://www.xbiao.com/","pic":"http://placehold.it/150x150/f00/fff","number":"500"},
   {"url":"http://www.xbiao.com/","pic":"http://placehold.it/150x150/f00/fff","number":"500"},
   {"url":"http://www.xbiao.com/","pic":"http://placehold.it/150x150/f00/fff","number":"500"},
-  {"url":"http://www.xbiao.com/","pic":"http://placehold.it/150x150/f00/fff","number":"500"}
   ],
   "2":[{"url":"http://www.xbiao.com/","pic":"http://placehold.it/150x150/f00/fff","number":"500"},
   {"url":"http://www.xbiao.com/","pic":"http://placehold.it/150x150/f00/fff","number":"500"},
@@ -25,8 +23,5 @@
   {"url":"http://www.xbiao.com/","pic":"http://placehold.it/150x150/f00/fff","number":"500"},
   {"url":"http://www.xbiao.com/","pic":"http://placehold.it/150x150/f00/fff","number":"500"},
   {"url":"http://www.xbiao.com/","pic":"http://placehold.it/150x150/f00/fff","number":"500"},
-  {"url":"http://www.xbiao.com/","pic":"http://placehold.it/150x150/f00/fff","number":"500"},
-  {"url":"http://www.xbiao.com/","pic":"http://placehold.it/150x150/f00/fff","number":"500"},
-  {"url":"http://www.xbiao.com/","pic":"http://placehold.it/150x150/f00/fff","number":"500"}
   ]
 }
