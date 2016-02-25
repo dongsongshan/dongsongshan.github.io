@@ -1,0 +1,36 @@
+---
+layout: default
+title: css居中
+---
+
+<p>第一种方法 table方法</p>
+
+<pre>
+// html部分
+<div class="center-wrap">
+	<div class="center">
+		<img src="http://placehold.it/200x100/">
+	</div>
+</div>
+
+// css部分
+  .center-wrap {
+    	display: table;
+    	background: hsl(120, 100%, 97%);
+    	width: 800px;
+    	height: 500px;
+    	margin: 0 auto;
+  }
+  .center {
+    	display: table-cell;
+    	text-align: center;
+    	vertical-align: middle;
+    	background-color: red;
+  }
+</pre>
+
+
+
+
+
+<p>{{ page.date | date_to_string }}</p>
