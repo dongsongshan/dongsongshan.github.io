@@ -58,8 +58,22 @@ title: css居中
     }
 </pre>
 
+<p>第四种 Flexbox方法</p>
 
-
+<pre>
+  //ie9貌似不支持
+  //新版的浏览器应该支持
+    .center { 
+        background: hsl(240, 100%, 97%);
+        width: 500px;
+        height: 500px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .center img { 
+    }
+</pre>
 
 
 <p>{{ page.date | date_to_string }}</p>
