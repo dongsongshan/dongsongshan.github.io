@@ -2,5 +2,10 @@
 
 <h1>dongsongshan's blog</h1>
     
-    
-Place call me `dongsongshan`
+<code>
+
+var a = function(){
+    alert(a)
+}
+
+</code>
