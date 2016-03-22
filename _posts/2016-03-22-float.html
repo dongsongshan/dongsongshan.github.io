@@ -1,0 +1,23 @@
+<p>元素吸顶</p>
+<pre>
+	    // 设置吸顶元素距网页文档顶部的高度
+	    var distance = 1100;
+	    // 屏幕高度
+	    var viewHeight = $(window).height();
+	    // 吸顶元素自身高度
+	    var selfHeight = $('.float').outerHeight();
+  		if ( $(window).scrollTop() < distance-(viewHeight-selfHeight)/2) {
+  			$('.float').css({
+  				"position":"absolute",
+  				"top": distance + 'px',
+  				"margin-top": ""
+  			});
+  		} else {
+  			$('.float').css({
+  				"position":"fixed",
+  				"top":"50%",
+  				"margin-top": (-selfHeight/2) + 'px'
+  			});	
+  		}
+</pre>
+参考网页：<a href="http://basel.xbiao.com/ target="_blank">查看</a>
