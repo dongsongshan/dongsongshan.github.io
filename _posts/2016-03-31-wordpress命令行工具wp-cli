@@ -1,0 +1,45 @@
+---
+layout: default
+title: wordpress命令行管理工具wp-cli
+---
+
+<p><a href="http://wp-cli.org/" target="_blank">wp-cli官网</a></p>
+
+wp-cli命令行的安装
+
+<pre>
+// 下载
+curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+</pre>
+
+<pre>
+// 检查是否可以使用
+php wp-cli.phar --info
+</pre>
+
+<pre>
+// 更改权限，并移动到环境变量，改名为wp
+chmod +x wp-cli.phar
+sudo mv wp-cli.phar /usr/local/bin/wp
+</pre>
+
+
+<pre>
+//下载wordpress
+wp core download
+
+//安装wordpress
+wp core install
+
+//查看当前wordpress版本
+wp core version 
+
+//检查wordpress，是否有可更新版本
+wp core check-update
+
+//列出插件列表
+wp plugin list
+
+</pre>
+
+<p>{{ page.date | date_to_string }}</p>
