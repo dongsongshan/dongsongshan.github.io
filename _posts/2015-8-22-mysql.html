@@ -17,6 +17,26 @@ quit
 Ctrl+c
 </pre>
 
+<p>mysql 创建新用户</p>
+<pre>
+ // create user '用户名'@'主机地址' IDENTIFIED by '密码';
+ create user 'dss'@'localhost' identified by '123456'
+</pre>
+
+<p>查看当前用户</p>
+<pre>
+select current_user();
+
+//返回下面
+
++----------------+
+| current_user() |
++----------------+
+| dss@localhost  |
++----------------+
+
+</pre>
+
 <p>修改mysql的命令提示符</p>
 <pre>
 有两种方式设置提示符，我常用第二种.
