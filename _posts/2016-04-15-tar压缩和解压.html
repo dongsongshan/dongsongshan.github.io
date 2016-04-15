@@ -1,0 +1,38 @@
+---
+layout: default
+title: tar压缩和解压.html
+---
+
+<p>tar压缩</p>
+
+<pre>
+//tar cf 压缩文件名.tar 要压缩的文件
+tar cf dss.tar dong
+
+//或者
+//tar czf 压缩文件名.tar.gz 要压缩的文件
+// c: 表示create; x:表示解压; z:表示gzip压缩; f:表示file
+tar czf dss.tar.gz dss
+</pre>
+
+<p>tar解压</p>
+<pre>
+//tar xf 要解压的文件名.tar
+tar xf dss.tar
+
+//tar xzf 要解压的文件名.tar.gz
+
+tar xzf dss.tar.gz
+</pre>
+
+
+
+
+
+
+
+
+
+
+
+<p>{{ page.date | date_to_string }}</p>
