@@ -1,0 +1,41 @@
+---
+layout: default
+title: CSS Sticky Footer Layout
+---
+
+
+<p>
+CSS Sticky Footer Layout
+</p>
+<pre>
+* {
+	margin: 0;
+}
+html, body {
+	height: 100%;
+}
+.wrapper {
+	min-height: 100%;
+	height: auto !important; /* This line and the next line are not necessary unless you need IE6 support */
+	height: 100%;
+	margin: 0 auto -155px; /* the bottom margin is the negative value of the footer's height */
+}
+.footer{background-color: red;}
+.footer, .push {
+	height: 155px; /* .push must be the same height as .footer */
+}
+</pre>
+
+<pre>
+    &lt;div class="wrapper"&gt;
+        &lt;p&gt;Your website content here.&lt;/p&gt;
+        &lt;div class="push"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="footer"&gt;
+        &lt;p&gt;Copyright (c) 2008&lt;/p&gt;
+    &lt;/div&gt;
+</pre>
+
+
+
+<p>{{ page.date | date_to_string }}</p>
