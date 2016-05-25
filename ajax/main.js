@@ -7,7 +7,7 @@ $(function(){
 		url:"order",
 		success:function(orders){
 			$.each(orders,function(i,order){
-				$list.append('<li>'+ 2 +'</li>');
+				$list.append('<li>'+ '2' +'</li>');
 			});
 		},
 		error:function(){
