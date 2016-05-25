@@ -6,7 +6,7 @@ $(function(){
 		type:"GET",
 		url:"order",
 		success:function(date){
-			console.log(success,date);
+			console.log('success',date);
 			// $.each(orders,function(i,order){
 			// 	$list.append('<li>'+ '2' +'</li>');
 			// });
