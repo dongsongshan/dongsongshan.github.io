@@ -5,7 +5,7 @@ $(function(){
 	$.ajax({
 		type:"GET",
 		url:"order",
-		success:function(date){
+		success:function(order){
 			$.each(order,function(i,order){
 				$list.append('<li>'+ 2 +'</li>');
 			});
