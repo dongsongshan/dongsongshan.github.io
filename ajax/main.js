@@ -1,6 +1,6 @@
 $(function(){
 
-	var $list = $('#list ul')
+	var $list = $('#list ul');
 
 	$.ajax({
 		type:"GET",
