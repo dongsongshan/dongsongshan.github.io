@@ -6,9 +6,8 @@ $(function(){
 		type:"GET",
 		url:"order",
 		success:function(date){
-			console.log('success',date);
-			$.each(date,function(i,date){
-				$list.append('<li>my orders</li>');
+			$.each(date,function(i,order){
+				$list.append('<li>name:'+ order.name +';drink:'+ order.drink +'</li>');
 			});
 		},
 		error:function(){
