@@ -5,9 +5,9 @@ $(function(){
 	$.ajax({
 		type:"GET",
 		url:"order",
-		success:function(date){
-			$.each(date,function(i,order){
-				$list.append('<li>name:'+ order.name +';drink:'+ order.drink +'</li>');
+		success:function(order){
+			$.each(order,function(i,o){
+				$list.append('<li>name:'+ o.name +';drink:'+ o.drink +'</li>');
 			});
 		},
 		error:function(){
