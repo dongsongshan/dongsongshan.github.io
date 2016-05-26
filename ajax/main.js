@@ -3,6 +3,8 @@ $(function(){
 	var $list = $('#list ul');
 	var $name = $('#name').val();
 	var $drink = $('#drink').val();
+	var $order = $('#order');
+	
 	$.ajax({
 		type:"GET",
 		url:"order",
@@ -18,19 +20,19 @@ $(function(){
 			alert(0);
 		}
 	});
+	$order.bind('click',function(){
+		$.ajax({
+			type:'POST',
+			url:"order",
+			date:{"name":$name,"drink":$drink},
+			success:function(){
+				console.log(1);
+			},
+			error:function(){
+				alert(0);
+			}
+		});		
+	})
+
 	
-	$.ajax({
-		type:'POST',
-		url:"order",
-		date:{"name":$name,"drink":$drink},
-		success:function(){
-			console.log(1);
-		},
-		error:function(){
-			alert(0);
-		}
-	});
-
-
-
 })
