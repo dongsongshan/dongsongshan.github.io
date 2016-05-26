@@ -6,7 +6,7 @@ $(function(){
 		type:"GET",
 		url:"order",
 		success:function(date){
-			// date = eval(date);
+			date = eval(date);
 			console.log(typeof(date));
 			console.log('succsee',date);
 			$.each(date,function(i,o){
