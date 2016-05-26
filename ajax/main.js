@@ -4,11 +4,11 @@ $(function(){
 
 	$.ajax({
 		type:"GET",
-		url:"order.js",
-		success:function(order){
+		url:"order",
+		success:function(date){
 			// console.log('succsee',order);
-			$.each(order,function(i,o){
-				$list.append('<li>name:'+ o +';drink:'+'</li>');
+			$.each(date,function(i,o){
+				$list.append('<li>name:'+ i +';drink:'+ o +'</li>');
 			});
 		},
 		error:function(){
