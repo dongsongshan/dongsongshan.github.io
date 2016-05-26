@@ -8,7 +8,7 @@ $(function(){
 		success:function(order){
 			// console.log('succsee',order);
 			$.each(order,function(i,o){
-				$list.append('<li>name:'+ o.name +';drink:'+ o.drink +'</li>');
+				$list.append('<li>name:'+ o +';drink:'+'</li>');
 			});
 		},
 		error:function(){
