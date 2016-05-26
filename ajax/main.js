@@ -8,7 +8,7 @@ $(function(){
 		success:function(date){
 			console.log('success',date);
 			$.each(date,function(i,date){
-				$list.append('<li>'+ '2' +'</li>');
+				$list.append('<li>my orders</li>');
 			});
 		},
 		error:function(){
