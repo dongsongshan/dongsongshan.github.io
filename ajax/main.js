@@ -10,7 +10,7 @@ $(function(){
 			console.log(typeof(date));
 			console.log('succsee',date);
 			$.each(date,function(i,o){
-				$list.append('<li>name:'+ i +';drink:'+ o +'</li>');
+				$list.append('<li>name:'+ o.name +';drink:'+ o.drink +'</li>');
 			});
 		},
 		error:function(){
