@@ -1,8 +1,8 @@
 $(function(){
 
 	var $list = $('#list ul');
-	var $name = $('#name').val();
-	var $drink = $('#drink').val();
+	var $name = $('#name');
+	var $drink = $('#drink');
 	var $order = $('#order');
 	
 	$.ajax({
@@ -24,7 +24,7 @@ $(function(){
 		$.ajax({
 			type:'POST',
 			url:"order",
-			date:{"name":$name,"drink":$drink},
+			date:{"name":$name.val(),"drink":$drink.val()},
 			success:function(){
 				console.log(1);
 			},
