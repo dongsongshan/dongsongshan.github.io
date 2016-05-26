@@ -4,7 +4,7 @@ $(function(){
 
 	$.ajax({
 		type:"GET",
-		url:"order",
+		url:"order.js",
 		success:function(order){
 			console.log('succsee',order);
 			// $.each(order,function(i,o){
