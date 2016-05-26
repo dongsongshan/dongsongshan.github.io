@@ -6,10 +6,10 @@ $(function(){
 		type:"GET",
 		url:"order.js",
 		success:function(order){
-			console.log('succsee',order);
-			// $.each(order,function(i,o){
-			// 	$list.append('<li>name:'+ o.name +';drink:'+ o.drink +'</li>');
-			// });
+			// console.log('succsee',order);
+			$.each(order,function(i,o){
+				$list.append('<li>name:'+ o.name +';drink:'+ o.drink +'</li>');
+			});
 		},
 		error:function(){
 			alert(0);
