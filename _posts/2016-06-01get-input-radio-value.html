@@ -12,17 +12,14 @@ title: JavaScript获取单选框的value
 //<input type="radio" name="sex"  value="男生" />男生 
 //<input type="radio" name="sex"   value="女生" />女生
 
-	<script>
-	document.onclick = function(){
-		var oRadio = document.getElementsByTagName('input');
-		for(var i=0; i<oRadio.length; i++){
-			if(oRadio[i].checked == true){
-				alert(oRadio[i].value);
-			}
-		}		
-	}
-
-
+document.onclick = function(){
+	var oRadio = document.getElementsByTagName('input');
+	for(var i=0; i<oRadio.length; i++){
+		if(oRadio[i].checked == true){
+			alert(oRadio[i].value);
+		}
+	}		
+}
 </pre>
 
 
