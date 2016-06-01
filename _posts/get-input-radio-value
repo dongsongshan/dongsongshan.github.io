@@ -1,0 +1,29 @@
+---
+layout: default
+title: CSS Sticky Footer Layout
+---
+
+
+<p>JavaScript获取单选框的value</p>
+
+<pre>
+// html 部分
+//<input type="radio" name="sex"  value="保密" checked="checked" />保密
+//<input type="radio" name="sex"  value="男生" />男生 
+//<input type="radio" name="sex"   value="女生" />女生
+
+	<script>
+	document.onclick = function(){
+		var oRadio = document.getElementsByTagName('input');
+		for(var i=0; i<oRadio.length; i++){
+			if(oRadio[i].checked == true){
+				alert(oRadio[i].value);
+			}
+		}		
+	}
+
+
+</pre>
+
+
+<p>{{ page.date | date_to_string }}</p>
