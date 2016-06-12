@@ -1,0 +1,30 @@
+---
+layout: default
+title: session会话
+---
+<p>开启会话</p>
+
+<pre>
+<?php
+  session_start();
+?>
+</pre>
+
+<p>储存session 变量</p>
+
+<pre>
+ <?php
+ $_SESSION['username'] = 'hello kitty';
+ 
+ echo $_SESSION['username'];  //输出 hello kitty
+ ?>
+
+
+</pre>
+
+
+
+
+
+
+<p>{{ page.date | date_to_string }}</p>
