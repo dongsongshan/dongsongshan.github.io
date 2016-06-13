@@ -22,47 +22,49 @@ session_start();
 
 <p>SESSION的应用</p>
 
-<p>index.php页面</p>
+<p>----------------index.php页面--------------</p>
 
 <pre>
 	
 	//index.php页面，检查是否登录，如果没有登录跳转至登录页面，如果登录成功，显示欢迎您，某某
 	
 	session_start();
- if(!isset($_SESSION['is_login'])){
- 		header(Location:login.php);
- }else{
-   $_SESSION['username'] = 'dongsongshan';
- }
+ 	if(!isset($_SESSION['is_login'])){
+		header(Location:login.php);
+	}else{
+	$_SESSION['username'] = 'dongsongshan';
+	}
  
- echo '欢迎您，'.$_SESSION['username'].'&lt;a href="./logout.php"&gt;退出&lt;/a&gt;';
+	echo '欢迎您，'.$_SESSION['username'].'&lt;a href="./logout.php"&gt;退出&lt;/a&gt;';
  
  </pre>
 
-<p>login.php页面</p>
+<p>--------------login.php页面-------------</p>
 
 <pre>
 	
-//php部分
-session_start();
-if($_POST['username']==='dongsongshan' && $_POST['password']==='123456'){
-	$_SESSION['is_login'] = true;
-	$_SESSION['username'] = dongsongshan;
-	header('Location:index.php')
-}
+	//php部分
+	
+	session_start();
+	if($_POST['username']==='dongsongshan' && $_POST['password']==='123456'){
+		$_SESSION['is_login'] = true;
+		$_SESSION['username'] = dongsongshan;
+		header('Location:index.php')
+	}
 
 
 
-//html部分
-&lt; form action='./' mothed='post' &gt;
- &lt; input type='text' name='username' &gt;
-&lt; input type='password' name='password' &gt;
-&lt; /form &gt;
+	//html部分
+	
+	&lt;form action='./' mothed='post'&gt;
+	&lt;input type='text' name='username'&gt;
+	&lt;input type='password' name='password'&gt;
+	&lt;/form&gt;
 
  </pre>
  
  
-<p>logout.php页面</p>
+<p>-----logout.php页面-----</p>
 
 <pre>
 	
