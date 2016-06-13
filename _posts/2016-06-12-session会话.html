@@ -30,12 +30,12 @@ session_start();
 	
 	session_start();
  	if(!isset($_SESSION['is_login'])){
-		header(Location:login.php);
+		header('Location:login.php');
 	}else{
-	$_SESSION['username'] = 'dongsongshan';
+		echo '欢迎您，'.$_SESSION['username'].'&lt;a href="./logout.php"&gt;退出&lt;/a&gt;';
 	}
  
-	echo '欢迎您，'.$_SESSION['username'].'&lt;a href="./logout.php"&gt;退出&lt;/a&gt;';
+	
  
  </pre>
 
