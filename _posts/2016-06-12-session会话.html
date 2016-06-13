@@ -35,7 +35,7 @@ session_start();
    $_SESSION['username'] = 'dongsongshan';
  }
  
- echo '欢迎您，'.$_SESSION['username'].'<a href="./logout.php">退出</a>';
+ echo '欢迎您，'.$_SESSION['username'].'&lt;a href="./logout.php"&gt;退出&lt;/a&gt;';
  
  </pre>
 
@@ -43,21 +43,22 @@ session_start();
 
 <pre>
 	
-	//php部分
-	session_start();
-	if($_POST['username']==='dongsongshan' && $_POST['password']==='123456'){
-			$_SESSION['is_login'] = true;
-			$_SESSION['username'] = dongsongshan;
-			header(Location:index.php)
-	}
-	
-	
-	
-	//html部分
-	&lt; form action='./' mothed='post' &rt;
- &lt; input type='text' name='username' &rt;
- &lt; input type='password' name='password' &rt;
- &lt; /form &rt;
+//php部分
+session_start();
+if($_POST['username']==='dongsongshan' && $_POST['password']==='123456'){
+	$_SESSION['is_login'] = true;
+	$_SESSION['username'] = dongsongshan;
+	header('Location:index.php')
+}
+
+
+
+//html部分
+&lt; form action='./' mothed='post' &gt;
+ &lt; input type='text' name='username' &gt;
+&lt; input type='password' name='password' &gt;
+&lt; /form &gt;
+
  </pre>
  
  
@@ -67,8 +68,8 @@ session_start();
 	
 	session_start();
 	session_destry()
-	$SESSION = Array();
-	header(Location:index.php)
+	$SESSION = array();
+	header(Location:'index.php')
 
  </pre>
 
