@@ -1,0 +1,23 @@
+<p></p>
+
+<pre>
+
+  1,引入头部文件
+  php get_header(); 
+  
+  2,条件标签
+  is_home()：当前页面为主页时返回true
+  is_category()：当前页面为分类页时返回true
+  is_single()：当前页面为单文章页时返回true
+  is_page()：当前页面为单页面时返回true
+  <a href="http://codex.wordpress.org/zh-cn:%E6%9D%A1%E4%BB%B6%E6%A0%87%E7%AD%BE">查看更多条件标签</a>
+
+  3,引入当前主题的样式路径
+  bloginfo('stylesheet_url');
+  4,引入当前主题的根目录
+  bloginfo('template_url');
+  5,常用标签
+  echo get_option('home');  输出你的博客首页网址
+  bloginfo('name');  输出你的博客名称
+  php bloginfo('description');  输出博客描述
+</pre>
