@@ -98,10 +98,26 @@ create table 表名 (字段设定列表);
 6、删库和删表: 
 drop database 库名; 
 drop table 表名； 
+
 7、将表中记录清空： 
 delete from 表名; 
+
 8、显示表中的记录： 
 select * from 表名
+
+9、删除表中一条记录
+DELETE FROM 表名 WHERE id=1;
+
+10、排序查看数据表(默认顺序ASC，倒序DESC)
+SELECT * FROM 表名 ORDER BY id DESC;
+
+11、数据表中插入数据
+
+//如果不输入字段名，每个值都得输入
+INSERT [INTO] 表名 VALUES(NULL,'http://www.baidu.com','百度');
+
+//可以给部分字段添加值
+INSERT [INTO] 表名 （`url`,`title`）VALUES('http://www.taobao.com/','淘宝');
 
 </pre>
 
