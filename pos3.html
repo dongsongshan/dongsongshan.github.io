@@ -7,18 +7,13 @@
     <!-- // <script type="text/javascript" src="http://api.map.baidu.com/getscript?v=2.0&ak=E4805d16520de693a3fe707cdc962045&services=&t=20160801150053"></script> -->
 </head>
 <body>
+    <div id="allmap"></div>
+    
     <script>
         var longitude, latitude;
         navigator.geolocation.getCurrentPosition( // 该函数有如下三个参数
             function(pos){ // 如果成果则执行该回调函数
-                // alert(
-                //     '  经度：' + pos.coords.latitude +
-                //     '  纬度：' + pos.coords.longitude +
-                //     '  高度：' + pos.coords.altitude +
-                //     '  精确度(经纬)：' + pos.coords.accuracy +
-                //     '  精确度(高度)：' + pos.coords.altitudeAccuracy +
-                //     '  速度：' + pos.coords.speed
-                // );
+
                 longitude = pos.coords.longitude;
                 latitude = pos.coords.latitude;
             }, function(err){ // 如果失败则执行该回调函数
