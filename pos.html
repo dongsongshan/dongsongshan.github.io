@@ -3,19 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=E4805d16520de693a3fe707cdc962045"></script>
+    <!-- // <script type="text/javascript" src="http://api.map.baidu.com/getscript?v=2.0&ak=E4805d16520de693a3fe707cdc962045&services=&t=20160801150053"></script> -->
 </head>
 <body>
     <script>
+        var longitude, latitude;
         navigator.geolocation.getCurrentPosition( // 该函数有如下三个参数
             function(pos){ // 如果成果则执行该回调函数
-                alert(
-                    '  经度：' + pos.coords.latitude +
-                    '  纬度：' + pos.coords.longitude +
-                    '  高度：' + pos.coords.altitude +
-                    '  精确度(经纬)：' + pos.coords.accuracy +
-                    '  精确度(高度)：' + pos.coords.altitudeAccuracy +
-                    '  速度：' + pos.coords.speed
-                );
+                // alert(
+                //     '  经度：' + pos.coords.latitude +
+                //     '  纬度：' + pos.coords.longitude +
+                //     '  高度：' + pos.coords.altitude +
+                //     '  精确度(经纬)：' + pos.coords.accuracy +
+                //     '  精确度(高度)：' + pos.coords.altitudeAccuracy +
+                //     '  速度：' + pos.coords.speed
+                // );
+                longitude = pos.coords.longitude;
+                latitude = pos.coords.latitude;
             }, function(err){ // 如果失败则执行该回调函数
                 alert(err.message);
             }, { // 附带参数
@@ -24,6 +29,24 @@
                 maximumAge: 1000 // 获取到的地理信息的有效期，超过有效期则重新获取一次位置信息
             }
         );
+
+
+        // 百度地图API功能
+        var map = new BMap.Map("allmap");
+        map.centerAndZoom(new BMap.Point(116.331398,39.897445),11);
+        map.enableScrollWheelZoom(true);
+        
+        // 用经纬度设置地图中心点
+        function theLocation(){
+            if(document.getElementById("longitude").value != "" && document.getElementById("latitude").value != ""){
+                map.clearOverlays(); 
+                var new_point = new BMap.Point(longitude, latitude);
+                var marker = new BMap.Marker(new_point);  // 创建标注
+                map.addOverlay(marker);              // 将标注添加到地图中
+                map.panTo(new_point);      
+            }
+        }
+
     </script>
 </body>
 </html>
