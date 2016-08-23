@@ -37,9 +37,15 @@ String(int);         // "13579"
 typeof String(int)   // string
 </pre>
 
-<p>数组转换成字符串</p>
+<p>数组转换成字符串 join()</p>
+<p>join(-)的参数是表示以-分割，没有参数的话，默认以逗号分割</p>
 
+<pre>
+arr = ["h", "e", "l", "l", "o"];
 
+arr.join();       // 'h,e,l,l,o'
+arr.join('');     // 'hello'
 
+</pre>
 
 <p>{{ page.date | date_to_string }}</p>
