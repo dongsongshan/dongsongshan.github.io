@@ -1,7 +1,8 @@
 ---
-layout: defaut
+layout: default
 title: php打开和写入文件
 ---
+
 <p>PHP打开文件</p>
 <pre>
 fopen(路径,文件模式);
@@ -19,6 +20,28 @@ if(!fp){
   exit;
 }
 </pre>
+
+<p>写文件<p>
+<pre>
+$content="需要写入的内容".$_POST['name'].$_POST['tel'];
+fwrite($fp,$content[,lenght]);
+// lenght 写入的最大字符串的长度
+// 通常为了结局兼容性问题 使用 strlen($content);
+
+// php5新引入了函数file_put_contents(filename,str,[int flags],[resource context]) 这个函数可以不需要fopen()和fclose()
+// 与之对应的是file_get_contents()
+</pre>
+<p>关闭文件</p>
+<pre>
+  fclose($fp);
+  //关闭文件
+</pre>
+
+
+
+
+
+
 
 
 <p>{{ page.date | date_to_string }}</p>
