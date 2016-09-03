@@ -1,0 +1,21 @@
+---
+layout:defaut
+title:php打开和写入文件
+---
+<p>PHP打开文件</p>
+<pre>
+fopen(路径,文件模式);
+//文件模式  意义
+//   r w x a 
+//   r+ w+ x+ a+ 
+//   b(二进制) t(文本，这个不常用)
+</pre>
+
+<p>判断是否打开文件</p>
+<pre>
+$fp = fopen('list.txt',ab);
+if(!fp){
+  echo 'Can not open the file, please check the file chmod 777';
+  exit;
+}
+</pre>
