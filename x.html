@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		em{color: red;}
+		span{color: green;}
+		i{color: blue;}
+		time{color: pink;}
+	</style>
+	<script src="http://www.xbiao.com/js/jquery.js"></script>
+</head>
+<body>
+	<div id="box">
+		<ul>
+
+		</ul>
+		<div class="btn">加载</div>
+	</div>
+	<script>
+	var page = 1;
+	$(function(){
+		$('.btn').bind('click',function(){
+			page += 1;
+			$.ajax({
+				url:'http://www.xbiao.com/wap/getMarticleDetail?jsoncallback=?',
+				type:'GET',
+				dataType:'jsonp',
+				data:{
+					'year':'2016-01-01',
+			        'type': 'brand',
+			        'pagesize':1,
+			        'catid':44,
+			        'brand_id':56,
+			        'page':page
+				},
+				success: function(res){
+					var html = '<li><em>' + res.list[0].id + '</em><span>'+ res.list[0].title + '</span><i>'+res.list[0].url +'</i><time>'+ res.list[0].description +'</time></li>';
+					html = $('ul').html() + html;
+					$('ul').html(html);
+				}
+			})
+		})
+	})
+	</script>
+</body>
+</html>
+
