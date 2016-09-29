@@ -1,0 +1,63 @@
+---
+layout: default
+title: liunx用户和用户组
+---
+
+<p>group 用户组</p>
+<pre>
+//新建用户组 groupadd+组名
+groupadd sexly
+
+//用户组改名 -n (newname)参数
+groupadd -n market sexly
+
+//查看用户组
+cat /etc/group
+
+//查看用户组密码
+cat /etc/gshadow
+
+//改变用户组序号
+groupmod -g 886 market
+
+//新建用户组时，直接只等用户组需要
+groupadd -g 888 boss
+
+//删除用户组
+groupdel dss
+(貌似必须删除没有用户的用户组？)
+</pre>
+
+<p>user 用户</p>
+<pre>
+//增加用户，不值等参数的话，会自己建和用户名相同的用户组
+useradd dss
+
+//指定用户组添加用户 -g (group)
+useradd -g market cangls
+
+//也可以指定用户的附属组 -G
+useradd -g market -G boss songls
+
+//也可以指定用户的家目录
+useradd -d /home/xxx imocc
+
+//主用户组 和 附属用户组切换
+newreg+用户组
+
+//删除用户
+userdel dss
+
+//删除用户并删除用户的家目录
+userdel -r dss
+
+</pre>
+
+
+
+
+
+
+
+
+<p>{{ page.date | date_to_string }}</p>
