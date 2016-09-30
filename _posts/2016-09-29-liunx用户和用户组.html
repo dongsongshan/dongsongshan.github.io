@@ -51,6 +51,14 @@ userdel dss
 //删除用户并删除用户的家目录
 userdel -r dss
 
+//用户追加附属组
+gpasswd -a cangls boss
+
+//用户剔除出附属组
+gpasswd -d cangls boss
+
+//用户组添加密码
+gpasswd boss
 </pre>
 
 
