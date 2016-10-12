@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	.clearfix{zoom: 1;}
+	.clearfix::after {
+		content: "";
+		display: block;
+		clear: both;
+	}
+
+	ul{width:204px;border:1px #f00 solid; overflow:hidden; padding: 0; margin: 0; }
+
+	ul li{float:left;width:100px; height:35px; border:1px #00f solid;margin-bottom:10px; list-style: none;}
+
+	</style>
+</head>
+<body>
+	<ul class="clearfix">
+		<li>测试margin-bottom</li>
+		<li>测试margin-bottom</li>
+		<li>测试margin-bottom</li>
+		<li>测试margin-bottom</li>
+	</ul>
+	<div>我是下面的元素</div>
+</body>
+</html>
