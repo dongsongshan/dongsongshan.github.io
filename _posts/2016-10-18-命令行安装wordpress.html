@@ -3,14 +3,35 @@ layout: default
 title: 命令行安装wordpress
 ---
 
-
-
-
-
-<p>下载安装包</p>
+<p>1,下载</p>
 <pre>
 wp core download
 </pre>
+
+<p>2,配置</p>
+<pre>
+// 配置数据库信息，wp-config.php
+wp core config --dbname=数据库名 --dbuser=用户名 --dbpass=密码
+</pre>
+
+<p>3,安装</p>
+<pre>
+wp core install --url=网站的地址 --title=网站名字 --admin_user=管理员名 --admin_password=管理员密码 --admin_email=管理员邮箱
+</pre>
+
+<p>4,设置语言</p>
+<pre>
+// 查看语言列表
+wp core language list
+// 下载中文
+wp core language install zh_CN
+// 激活中文
+wp core language activate zh_CN
+// 上面两步也可以一步到位，下载并激活
+wp core language install zh_CN --activate
+
+</pre>
+
 
 
 <p>{{ page.date | date_to_string }}</p>
