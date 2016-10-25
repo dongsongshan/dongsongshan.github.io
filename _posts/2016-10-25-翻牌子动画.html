@@ -1,0 +1,41 @@
+
+---
+layout: default
+title: 翻牌子动画
+---
+
+<p>实例</p>
+<a href="http://codepen.io/dongsongshan/pen/gwELmv">查看代码 http://codepen.io/dongsongshan/pen/gwELmv </a>
+<a href="http://www.xbiao.com/static/summer/">查看例子 http://www.xbiao.com/static/summer/</a>
+<p>html部分</p>
+<pre>
+&lt;div class=&quot;list list2&quot;&gt;
+  &lt;ul&gt;
+    &lt;li&gt;
+      &lt;span&gt;&lt;img src=&quot;../../images/static/summer/item-bg-2-1.jpg&quot; alt=&quot;&quot;&gt;&lt;/span&gt;
+      &lt;i&gt;
+        &lt;img src=&quot;../../images/static/summer/item-2-1.jpg&quot; alt=&quot;&quot;&gt;
+        &lt;em&gt;
+          天梭杜鲁尔系列刘亦菲代言款腕表&lt;br /&gt;
+            型号：T099.207.16.116.00
+        &lt;/em&gt;
+      &lt;/i&gt;
+      &lt;a href=&quot;http://www.xbiao.com/tissot/42587/&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+</pre>
+
+<p>翻牌子的js</p>
+<pre>
+$('.list li').bind('mouseover',function(){
+  $(this).addClass('active');
+});
+$('.list li').bind('mouseout',function(){
+  $(this).removeClass('active');
+});
+</pre>
+
+
+<p>{{ page.date | date_to_string }}</p>
+
