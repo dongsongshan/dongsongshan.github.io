@@ -1,0 +1,21 @@
+---
+layout: default
+title: browser-sync的用法
+---
+
+<p>browser-sync的安装</p>
+<pre>
+npm install browser-sync -g
+</pre>
+
+<p>项目中的安装</p>
+<pre>
+npm install --save-dev browser-sync
+</pre>
+
+<p>browser-sync的启用</p>
+<pre>
+browser-sync start --server --files "**/*.css, **/*.html, **/*.js"
+</pre>
+
+<p>{{ page.date | date_to_string }}</p>
