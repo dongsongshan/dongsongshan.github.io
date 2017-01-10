@@ -2,18 +2,22 @@
 layout: default
 title: npm镜像插件nrm
 ---
-
-
+<p>1,nrm的安装</p>
 <pre>
-//nrm的安装
-npm install nrm -g
+npm install -g nrm --registry=https://registry.npm.taobao.org
+</pre>
 
-//nrm 查看当前镜像
+<p>查看当前镜像</p>
+<pre>
 nrm current
+</pre>
 
-//nrm 查看所有镜像
+<p>查看所有镜像<p>
+<pre>
 nrm ls
-
+</pre>
+<p>返回如下<p>
+<pre>
 * npm ---- https://registry.npmjs.org/
   cnpm --- http://r.cnpmjs.org/
   taobao - https://registry.npm.taobao.org/
@@ -21,16 +25,33 @@ nrm ls
   rednpm - http://registry.mirror.cqupt.edu.cn/
   npmMirror  https://skimdb.npmjs.com/registry/
   edunpm - http://registry.enpmjs.org/
-
-// nrm 选择镜像
+</pre>
+<p>选择镜像</p>
+<pre>
 nrm use taobao
-
+//return
    Registry has been set to: https://registry.npm.taobao.org/
-
-
 </pre>
 
+<p>再来查看一下当前的镜像</p>
+<pre>
+nrm current
+taobao //return
+</pre>
 
+<p>或者用nrm ls 查看一下，当前的镜像前面会有星标*</p>
+
+<pre>
+nrm ls
+//return
+  npm ---- https://registry.npmjs.org/
+  cnpm --- http://r.cnpmjs.org/
+* taobao - https://registry.npm.taobao.org/
+  nj ----- https://registry.nodejitsu.com/
+  rednpm - http://registry.mirror.cqupt.edu.cn/
+  npmMirror  https://skimdb.npmjs.com/registry/
+  edunpm - http://registry.enpmjs.org/
+</pre>
 
 
 
