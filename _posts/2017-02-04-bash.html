@@ -61,20 +61,25 @@ echo -e 'h\te\tl\nl\to'
 
 
 <p>bash脚本执行方式</p>
+<p>新建hello.sh</p>
+<pre>
+vim hello.sh
+</pre>
 <pre>
 #!/bin/bash
 #the first program
 echo -e "\e[1;32m 天上掉下个林妹妹 \e[0m"
 </pre>
-<p>#30m = 黑色</p>
-<p>#31m = 红色</p>
-<p>#32m = 绿色</p>
-<p>#33m = 黄色</p>
-<p>#34m = 蓝色</p>
-<p>#35m = 洋色</p>
-<p>#36m = 青色</p>
-<p>#37m = 白色</p>
-
-
+<p>#30m = 黑色 , #31m = 红色 , #32m = 绿色 , #33m = 黄色 , #34m = 蓝色 , #35m = 洋色 , #36m = 青色 , #37m = 白色</p>
+<p>执行bash脚本，两种方式</p>
+<p>第一种</p>
+<pre>
+bash hello.sh
+</pre>
+<p>第二种</p>
+<pre>
+chomod 755 hello.sh
+./hello.sh
+</pre>
 
 <p>{{ page.date | date_to_string }}</p>
