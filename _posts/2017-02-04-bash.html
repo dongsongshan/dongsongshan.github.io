@@ -1,0 +1,77 @@
+---
+layout: default
+title: bash脚本
+---
+<p>echo</p>
+<p>echo [选项] [输出内容]</p>
+<p>选项: -e: 支持反斜线控制的字符转换</p>
+<p>普通输出，不带-e</p>
+<pre>
+echo hello
+</pre>
+<p>修饰字符的输出，带-e的输出</p>
+<pre>
+echo -e 'h\te\tl\nl\to'
+</pre>
+<table>
+  <tr>
+    <th>控制字符</th>
+    <th>作用</th>
+  </tr>
+  <tr>
+    <td>\a</td>
+    <td>输出警告音</td>
+  </tr>
+  <tr>
+    <td>\b</td>
+    <td>退格键，向左删除键</td>
+  </tr>
+  <tr>
+    <td>\n</td>
+    <td>换行符</td>
+  </tr>
+  <tr>
+    <td>\r</td>
+    <td>回车符</td>
+  </tr>
+  <tr>
+    <td>\t</td>
+    <td>制表符，也就是Tab键</td>
+  </tr>
+  <tr>
+    <td>\v</td>
+    <td>垂直制表符</td>
+  </tr>
+  <tr>
+    <td>\0nnn</td>
+    <td>八进制ASCII</td>
+  </tr>
+  <tr>
+    <td>\xhh</td>
+    <td>十六进制ASCII</td>
+  </tr>
+</table>
+
+
+
+<p>bash脚本执行方式</p>
+<pre>
+#!/bin/bash
+#the first program
+echo -e "\e[1;32m 天上掉下个林妹妹 \e[0m"
+</pre>
+
+<ul>
+  <li>#30m = 黑色</li>
+  <li>#31m = 红色</li>
+  <li>#32m = 绿色</li>
+  <li>#33m = 黄色</li>
+  <li>#34m = 蓝色</li>
+  <li>#35m = 洋色</li>
+  <li>#36m = 青色</li>
+  <li>#37m = 白色</li>
+</ul>
+
+
+
+<p>{{ page.date | date_to_string }}</p>
