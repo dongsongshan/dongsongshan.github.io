@@ -1,0 +1,34 @@
+---
+layout: default
+title: svg
+---
+
+<p>1,svg矩形 rect标签</p>
+<div style="max-width:500px; height:300px; border:1px solid #666;">
+  <svg width="100%" height="100%" version="1.1"
+xmlns="http://www.w3.org/2000/svg">
+    <rect x="20" y="20" width="100" height="100" style="fill:rgba(255,0,0,0.5); stroke-width:5; stroke:rgba(0,0,0,0.5)" />
+    <rect x="140" y="20" width="100" height="100" style="fill:rgb(255,0,0); stroke-width:5; stroke:rgb(0,0,0); fill-opacity:0.5; stroke-opacity:0.5;" />
+    <rect x="260" y="20" width="100" height="100" style="fill:rgb(255,0,0); stroke-width:5; stroke:black; opacity:0.5" />
+    <rect x="380" y="20" width="100" height="100" style="fill:rgb(255,0,0); stroke-width:5; stroke:black" />
+    <rect x="20" y="140" rx="20" ry="20" width="100" height="100" style="fill:rgb(255,0,0); stroke-width:5; stroke:black" />
+  </svg>
+</div>
+<p>x 属性定义矩形的左侧位置（例如，x="0" 定义矩形到浏览器窗口左侧的距离是 0px）</p>
+<p>y 属性定义矩形的顶端位置（例如，y="0" 定义矩形到浏览器窗口顶端的距离是 0px）</p>
+<p>CSS 的 fill-opacity 属性定义填充颜色透明度（合法的范围是：0 - 1）</p>
+<p>CSS 的 stroke-opacity 属性定义笔触颜色的透明度（合法的范围是：0 - 1）</p>
+<p>为整个元素设置透明度 opacity 属性定义整个元素的透明值（合法的范围是：0 - 1）</p>
+
+<p>2,svg圆形 circle标签</p>
+<div style="max-width:500px; height:300px; border:1px solid #666;">
+  <svg width="100%" height="100%" version="1.1"
+xmlns="http://www.w3.org/2000/svg">
+    <circle cx="70" cy="70" width="100" height="100" r="50" style="fill:rgb(255,0,0); stroke-width:5; stroke:rgb(0,0,0)" />
+  </svg>
+</div>
+<p>cx 属性定义圆形的左侧位置（例如，cx="0" 定义圆心到浏览器窗口左侧的距离是 0px）</p>
+<p>cy 属性定义圆形的顶端位置（例如，cy="0" 定义圆心到浏览器窗口顶端的距离是 0px）</p>
+
+
+<p>{{ page.date | date_to_string }}</p>
