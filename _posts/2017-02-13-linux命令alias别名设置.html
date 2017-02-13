@@ -1,0 +1,35 @@
+---
+layout: default
+title: linux命令alias别名设置
+---
+
+<p>1,alias命令</p>
+<pre>
+ 	alias
+ 	//返回当前的所有别名设置
+	alias cp='cp -i'
+	alias egrep='egrep --color=auto'
+	alias fgrep='fgrep --color=auto'
+	alias grep='grep --color=auto'
+	alias l.='ls -d .* --color=auto'
+	alias ll='ls -l --color=auto'
+	alias ls='ls --color=auto'
+	alias mv='mv -i'
+	alias rm='rm -i'
+	alias which='alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde'
+</pre>
+
+<p>2,alias临时设置</p>
+<p>当退出系统，此设置将失效</p>
+<pre>
+ 	alias list='ls -lh'
+</pre>
+
+<p>3,alias永久设置</p>
+<p>编辑文件~/.bashrc</p>
+<pre>
+ 	source .bashrc   #让我们的环境生效
+</pre>
+
+
+<p>{{ page.date | date_to_string }}</p>
