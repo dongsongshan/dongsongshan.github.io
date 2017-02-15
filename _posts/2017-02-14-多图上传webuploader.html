@@ -5,13 +5,13 @@ title: 多图上传webuploader
 
 <p>1,引入</p>
 <pre>
-<!--引入CSS-->
-<link href="http://cdn.bootcss.com/webuploader/0.1.1/webuploader.css" rel="stylesheet">
+&lt;!--引入CSS--&gt;
+&lt;link href="http://cdn.bootcss.com/webuploader/0.1.1/webuploader.css" rel="stylesheet"&gt;
 
-<!--引入JS-->
-<script src="http://cdn.bootcss.com/webuploader/0.1.1/webuploader.js"></script>
+&lt;!--引入JS--&gt;
+&lt;script src="http://cdn.bootcss.com/webuploader/0.1.1/webuploader.js"&gt;&lt;/script&gt;
 
-<!--SWF在初始化的时候指定，在后面将展示-->
+&lt;!--SWF在初始化的时候指定，在后面将展示--&gt;
 </pre>
 
 <p>Δ初始化Web Uploader</p>
@@ -48,10 +48,10 @@ var uploader = WebUploader.create({
 // 当有文件添加进来的时候
 uploader.on( 'fileQueued', function( file ) {
     var $li = $(
-            '<div id="' + file.id + '" class="file-item thumbnail">' +
-                '<img>' +
-                '<div class="info">' + file.name + '</div>' +
-            '</div>'
+            '&lt;div id="' + file.id + '" class="file-item thumbnail">' +
+                '&lt;img&gt;' +
+                '&lt;div class="info"&gt;' + file.name + '&lt;/div&gt;' +
+            '&lt;/div>'
             ),
         $img = $li.find('img');
 
@@ -64,7 +64,7 @@ uploader.on( 'fileQueued', function( file ) {
     // thumbnailWidth x thumbnailHeight 为 100 x 100
     uploader.makeThumb( file, function( error, src ) {
         if ( error ) {
-            $img.replaceWith('<span>不能预览</span>');
+            $img.replaceWith('&lt;span&gt;不能预览&lt;/span&gt;');
             return;
         }
 
@@ -83,7 +83,7 @@ uploader.on( 'uploadProgress', function( file, percentage ) {
 
     // 避免重复创建
     if ( !$percent.length ) {
-        $percent = $('<p class="progress"><span></span></p>')
+        $percent = $('&lt;p class="progress"&gt;&lt;span&gt;&lt;/span&gt;&lt;/p&gt;')
                 .appendTo( $li )
                 .find('span');
     }
@@ -107,7 +107,7 @@ uploader.on( 'uploadError', function( file ) {
 
     // 避免重复创建
     if ( !$error.length ) {
-        $error = $('<div class="error"></div>').appendTo( $li );
+        $error = $('&lt;div class="error"&gt;&lt;/div&gt;').appendTo( $li );
     }
 
     $error.text('上传失败');
