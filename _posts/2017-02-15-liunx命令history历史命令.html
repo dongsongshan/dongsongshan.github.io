@@ -1,0 +1,68 @@
+---
+layout: default
+title: liunx命令history历史命令
+---
+
+<p>1,查看历史命令</p>
+<pre>
+->histroy
+//返回
+->1  cp insert.php show.php
+  2  vim show.php
+  3 vim insert.php
+  .
+  .
+  .
+  990  vim show.php
+  991  vim insert.php
+  992  vim show.php
+  993  exit
+  994  history
+  995  ls
+  996  ls -a
+  997  cat .bash_history
+  998  history
+</pre>
+
+<pre>
+// 查看最近的N条命令
+//history N
+
+history 2
+14  echo $HISTFILESIZE
+15  history 2
+</pre>
+
+
+
+<p>2,使用历史命令</p>
+<pre>
+!!  //使用上一条命令，不常用，一般有上下方向键就ok
+</pre>
+
+<pre>
+!n  //使用历史的第n条命令
+</pre>
+
+<p>3，删除历史命令</p>
+
+<pre>
+//清空历史命令
+history  -c
+</pre>
+
+<pre>
+//删除第N条命令
+history -d N
+</pre>
+
+<p>4 .bash_history</p>
+
+<pre>
+//退出系统后 历史命令会写入.bash_history文件
+//强制写入用 history -w
+histroy -w
+</pre>
+
+
+<p>{{ page.date | date_to_string }}</p>
