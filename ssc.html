@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<script src="http://cdn.bootcss.com/jquery/1.11.0/jquery.js"></script>
+	<style>
+	*{padding: 0; margin: 0;}
+	.box-wrap{margin: 0 auto;  height: 1000px; background-color: #f5f5f5;}
+	.box{width: 100%;}
+	.box time{float: left; width: 15%; text-align: center; height: 20px; color: #666; font-size: 12px; line-height: 20px;}
+	.box span{float: left; width: 25%; text-align: center; height: 20px; color: #666; font-size: 12px; line-height: 20px;}
+	.box ul{list-style: none; padding: 0; margin: 0; float: left; width: 60%;}
+	.box ul li{width: 20px; height: 20px; border-radius: 50%; margin: 1px 1px; float: left; background-color: #ccc; text-align: center; line-height: 20px; color: #666}
+	.box ul li.one{background-color: green; color: #fff; }
+	.box ul li.two{background-color: red; color: #fff;}
+	.box ul li.three{background-color: #990066; color: #fff;}
+	.box ul li.four{background-color: blue; color: #fff;}
+	.box ul li.five{background-color: black; color: #fff;}
+
+
+	@media ( max-width: 320px ){
+		.box time{float: left; width: 15%; text-align: center; height: 15px; color: #666; font-size: 12px; line-height: 15px;}
+		.box span{float: left; width: 25%; text-align: center; height: 15px; color: #666; font-size: 12px; line-height: 15px;}
+		.box ul{list-style: none; padding: 0; margin: 0; float: left; width: 60%;}
+		.box ul li{width: 15px; height: 15px; border-radius: 50%; margin: 1px 1px; float: left; background-color: #ccc; text-align: center; line-height: 15px; color: #666}
+
+	}
+	</style>
+</head>
+<body>
+<div class="box-wrap">
+	
+</div>
+
+
+
+
+<script>
+
+	getCode();
+	setInterval(getCode,15000)
+
+
+
+
+	// var r1 = Number($('.result li:eq(0)').html());
+	// var r2 = Number($('.result li:eq(1)').html());
+	// var r3 = Number($('.result li:eq(2)').html());
+	// var r4 = Number($('.result li:eq(3)').html());
+	// var r5 = Number($('.result li:eq(4)').html());
+	// var award = [1,1,1,2,3];
+	// console.log(r5);
+	// console.log(typeof(r1))
+	var num = [0,0,0,0,0,0,0,0,0,0];
+
+
+	// plusOne(num);
+	// clearZero(award,num)
+	// console.log(num)
+
+
+// ----------------------public function---------------------------
+
+	// ajax获取中奖号码
+	var timestamp = 0;
+	function getCode(){
+		$.ajax({
+			url:'http://f.apiplus.cn/cqssc-20.json',
+			type:'GET',
+			dataType:'jsonp',
+			success:function(result){
+				// 数据条数
+				var total = result.rows;
+				var data  = result.data;
+				// data[0].opentimestamp !== timestamp 根据时间判读是否更新数据
+				if(data[0].opentimestamp !== timestamp){
+					var time = new Date();
+					//第一次的时候写入所有的条数
+					if(timestamp == 0){
+						for(var i=0; i<=total; i++){
+							var id = data[i].opentimestamp;
+							var award = data[i].opencode.split(',')
+							var _html = '<div class="box" id="id'+ id +'"><time>'+ time.getHours()+ ':' +time.getMinutes()+ ':' + time.getSeconds()+ '</time><span>' + data[i].expect + '</span><ul><li>0</li><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li></ul></div>';
+							$('.box-wrap').prepend(_html);
+							pick($('#id'+id+' li'),award);
+						}
+					}
+					var id = data[0].opentimestamp;
+					var award = data[0].opencode.split(',')
+					var _html = '<div class="box" id="id'+ id +'"><time>'+ time.getHours()+ ':' +time.getMinutes()+ ':' + time.getSeconds()+ '</time><span>' + data[0].expect + '</span><ul><li>0</li><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li></ul></div>';
+					$('.box-wrap').prepend(_html);
+					pick($('#id'+id+' li'),award);
+
+					timestamp = data[0].opentimestamp;
+				}
+
+			}
+		})
+	}
+	// 加1操作 
+	function plusOne(arr){
+		for(var i=0; i<arr.length; i++){
+			arr[i]++;
+		}
+	}
+
+	// 清零操作 award arr 都为数组,award=[0,5,3,5,6]
+	function clearZero(award,arr){
+		for(var i = 0; i<award.length; i++){
+			var index = award[i];
+			arr[index] = 0;
+		}
+	}
+
+	function pick(obj,arr){
+		var n=[];
+		console.log(arr);
+		for(var i=0; i<arr.length; i++){
+			n[i]=1;
+			console.log(arr[i]);
+			for(var j=0; j<arr.length; j++){
+				if(i!==j){
+					if(arr[i] == arr[j]){
+						n[i]++;
+					}
+				}
+			}
+			// console.log(arr[i]+ '有' + n[i] +'个');
+			addColor(obj,arr[i],n[i])
+		}
+	}
+
+	function addColor(obj,i,n){
+		if(n==1){
+			obj.eq(i).addClass('one');
+		}else if(n==2){
+			obj.eq(i).addClass('two');
+		}else if(n==3){
+			obj.eq(i).addClass('three');
+		}else if(n==4){
+			obj.eq(i).addClass('four');
+		}else{
+			obj.eq(i).addClass('five');
+		}
+	}
+
+
+	// pick([1,1,1,1,5])
+
+
+	</script>
+</body>
+</html>
