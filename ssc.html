@@ -64,7 +64,8 @@
 // ----------------------public function---------------------------
 
 	// ajax获取中奖号码
-	var timestamp = 0;
+	var  onOff     = true;
+	var  timestamp = 0;
 	function getCode(){
 		$.ajax({
 			url:'http://f.apiplus.cn/cqssc-20.json',
@@ -74,28 +75,30 @@
 				// 数据条数
 				var total = result.rows;
 				var data  = result.data;
-				// data[0].opentimestamp !== timestamp 根据时间判读是否更新数据
+				//根据时间判读是否更新数据
 				if(data[0].opentimestamp !== timestamp){
+					timestamp = data[0].opentimestamp;
 					var time = new Date();
-					//第一次的时候写入所有的条数
-					if(timestamp == 0){
+					if(onOff){
+						onOff = false;
+						//第一次的时候写入所有的条数
 						for(var i=0; i<=total; i++){
 							var id = data[i].opentimestamp;
 							var award = data[i].opencode.split(',')
 							var _html = '<div class="box" id="id'+ id +'"><time>'+ time.getHours()+ ':' +time.getMinutes()+ ':' + time.getSeconds()+ '</time><span>' + data[i].expect + '</span><ul><li>0</li><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li></ul></div>';
-							$('.box-wrap').prepend(_html);
+							$('.box-wrap').append(_html);
 							pick($('#id'+id+' li'),award);
 						}
+					}else{
+						// 第一条数据
+						var id = data[0].opentimestamp;
+						var award = data[0].opencode.split(',')
+						var _html = '<div class="box" id="id'+ id +'"><time>'+ time.getHours()+ ':' +time.getMinutes()+ ':' + time.getSeconds()+ '</time><span>' + data[0].expect + '</span><ul><li>0</li><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li></ul></div>';
+						$('.box-wrap').prepend(_html);
+						pick($('#id'+id+' li'),award);
+						console.log(timestamp);
 					}
-					var id = data[0].opentimestamp;
-					var award = data[0].opencode.split(',')
-					var _html = '<div class="box" id="id'+ id +'"><time>'+ time.getHours()+ ':' +time.getMinutes()+ ':' + time.getSeconds()+ '</time><span>' + data[0].expect + '</span><ul><li>0</li><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li></ul></div>';
-					$('.box-wrap').prepend(_html);
-					pick($('#id'+id+' li'),award);
-
-					timestamp = data[0].opentimestamp;
 				}
-
 			}
 		})
 	}
@@ -116,10 +119,10 @@
 
 	function pick(obj,arr){
 		var n=[];
-		console.log(arr);
+		// console.log(arr);
 		for(var i=0; i<arr.length; i++){
 			n[i]=1;
-			console.log(arr[i]);
+			// console.log(arr[i]);
 			for(var j=0; j<arr.length; j++){
 				if(i!==j){
 					if(arr[i] == arr[j]){
