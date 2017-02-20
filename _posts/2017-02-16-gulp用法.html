@@ -58,7 +58,21 @@ gulp.task('default', ['autocss', 'rev']);
 
 	</pre>
 
+	<p>雪碧图插件gulp-css-spriter</p>
 
+<pre>
+var gulp    = require('gulp');
+var spriter = require('gulp-css-spriter');
+
+gulp.task('default',function(){
+	return gulp.src('./css/style.css')                               //- 获取含有雪碧图的css文件
+	.pipe(spriter({
+		'spriteSheet':'./dist/images/sprite.png',                    //- 合成雪碧图后存放到的路径
+		'pathToSpriteSheetFromCSS':'../dist/images/sprite.png'       //- 修改css中图片的路径
+	}))
+	.pipe(gulp.dest('./dist/css'));                                  //- 复制css到'./dist/css'目录
+})	
+</pre>
 
 
 <p>{{ page.date | date_to_string }}</p>
