@@ -12,14 +12,259 @@ justify-content
 align-items
 align-content
 </pre>
+	<style>
+		.wrap{
+			display: flex;
+		}
+		.box{
+			width: 90px;
+			height: 90px;
+			background-color: rgba(255,0,0,0.4);
+			margin: 10px;
+			border-radius: 5px;
+		}
+		.item{
+			margin: 5px;
+			width: 20px; 
+			height: 20px;
+			border-radius: 50%;
+			background-color: #fff; 
+		}
 
+		.box-one-1{
+			display: flex;
+		}
+		.box-one-2{
+			display: flex;
+	    	justify-content: center;
+		}
+		.box-one-3{
+			display: flex;
+	    	justify-content: flex-end;
+		}
+		.box-one-4{
+			display: flex;
+	    	justify-content: flex-start;
+	    	align-items: center;
+		}
+		.box-one-5{
+			display: flex;
+	    	justify-content: space-around;
+	    	align-items: center;
+		}
+		.box-one-6{
+			display: flex;
+	    	justify-content: flex-end;
+	    	align-items: center;
+		}
+		.box-one-7{
+			display: flex;
+	    	justify-content: flex-start;
+	    	align-items: flex-end;
+		}
+		.box-one-8{
+			display: flex;
+	    	justify-content: center;
+	    	align-items: flex-end;
+		}
+		.box-one-9{
+			display: flex;
+	    	justify-content: flex-end;
+	    	align-items: flex-end;
+		}
+/*two*/
+		.box-two-1{
+			display: flex;
+	    	justify-content: space-between;
 
+		}
+		.box-two-2{
+			display: flex;
+	    	justify-content: space-between;
+			align-items: center;
+		}
+		.box-two-3{
+			display: flex;
+	    	justify-content: space-between;
+			align-items: flex-end;
+		}
+		.box-two-4{
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+		}
+		.box-two-5{
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			align-items: center;
+		}
+		.box-two-6{
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			align-items: flex-end;
+		}
+		.box-two-7{
+			display: flex;
+		}
+		.box-two-7 .item:nth-child(2){
+		  align-self: center;
+		}
+		.box-two-8{
+		  display: flex;
+		  justify-content: space-between;
+		}
 
+		.box-two-8 .item:nth-child(2) {
+		  align-self: flex-end;
+		}
+		.box-two-9{
+		  display: flex;
+		  justify-content: space-between;
+		}
 
-<p>1,</p>
-<pre>
+		.box-two-9 .item:nth-child(1){
+		  align-self: flex-end;
+		}
+/*three*/
+		.box-three-1{
+		  display: flex;
+		  justify-content: space-between;
+		}
+		.box-three-1 .item:nth-child(2){
+		  align-self: center;
+		}
+		.box-three-1 .item:nth-child(3){
+		  align-self: flex-end;
+		}
+		.box-three-2{
+		  display: flex;
+		  align-items: center;
+		}
 
-</pre>
+		.box-three-3{
+		  display: flex;
+		  flex-direction: column;
+		}
+/*four*/
+		.box-four-1{
+		  display: flex;
+		  flex-wrap: wrap;
+		  align-content: space-between;
+		}		
+	</style>
+</head>
+<body>
+<div class="wrap">
+	<div class="box box-one-1">
+	  <span class="item"></span>
+	</div>
+	<div class="box box-one-2">
+	  <span class="item"></span>
+	</div>
+	<div class="box box-one-3">
+	  <span class="item"></span>
+	</div>
+	<div class="box box-one-4">
+	  <span class="item"></span>
+	</div>
+	<div class="box box-one-5">
+	  <span class="item"></span>
+	</div>
+	<div class="box box-one-6">
+	  <span class="item"></span>
+	</div>
+	<div class="box box-one-7">
+	  <span class="item"></span>
+	</div>
+	<div class="box box-one-8">
+	  <span class="item"></span>
+	</div>
+	<div class="box box-one-9">
+	  <span class="item"></span>
+	</div>
+</div>
+
+<!-- 2 -->
+<div class="wrap">
+	<div class="box box-two-1">
+	  <span class="item"></span>
+	  <span class="item"></span>
+	</div>
+	<div class="box box-two-2">
+	  <span class="item"></span>
+	  <span class="item"></span>
+	</div>
+	<div class="box box-two-3">
+	  <span class="item"></span>
+	  <span class="item"></span>
+	</div>
+	<div class="box box-two-4">
+	  <span class="item"></span>
+	  <span class="item"></span>
+	</div>
+	<div class="box box-two-5">
+	  <span class="item"></span>
+	  <span class="item"></span>
+	</div>
+	<div class="box box-two-6">
+	  <span class="item"></span>
+	  <span class="item"></span>
+	</div>
+	<div class="box box-two-7">
+	  <span class="item"></span>
+	  <span class="item"></span>
+	</div>
+	<div class="box box-two-8">
+	  <span class="item"></span>
+	  <span class="item"></span>
+	</div>
+	<div class="box box-two-9">
+	  <span class="item"></span>
+	  <span class="item"></span>
+	</div>
+</div>
+<!-- 3 -->
+<div class="wrap">
+	<div class="box box-three-1">
+	  <span class="item"></span>
+	  <span class="item"></span>
+	  <span class="item"></span>
+	</div>
+	<div class="box box-three-2">
+	  <span class="item"></span>
+	  <span class="item"></span>
+	  <span class="item"></span>
+	</div>
+	<div class="box box-three-3">
+	  <span class="item"></span>
+	  <span class="item"></span>
+	  <span class="item"></span>
+	</div>
+</div>
+<!-- 4 -->
+<div class="wrap">
+	<div class="box box-four-1">
+	  <span class="item"></span>
+	  <span class="item"></span>
+	  <span class="item"></span>
+	  <span class="item"></span>
+	</div>
+	<div class="box box-four-2">
+	  <span class="item"></span>
+	  <span class="item"></span>
+	  <span class="item"></span>
+	  <span class="item"></span>
+	</div>
+	<div class="box box-four-3">
+	  <span class="item"></span>
+	  <span class="item"></span>
+	  <span class="item"></span>
+	  <span class="item"></span>
+	</div>
+</div>
+
 
 
 
