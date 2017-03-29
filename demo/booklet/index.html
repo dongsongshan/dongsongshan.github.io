@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="jquery.booklet.latest.css">
+	<script src="jquery-2.1.0.min.js"></script>
+	<script src="jquery-ui-1.10.4.min.js"></script>
+	<script src="jquery.easing.1.3.js"></script>
+	<script src="jquery.booklet.latest.min.js"></script>
+	<style>
+	body{background: #262626;}
+	</style>
+</head>
+<body>
+	<div id="mybook">
+    <div>
+    </div>
+    <div>
+        <h3>Yay, Page 2!</h3>
+    </div>
+    <div>
+        <h3>Yay, <a href="http://baidu.com">baidu.com</a>Page 3!</h3>
+    </div>
+    <div>
+        <h3>Yay, Page 4!</h3>
+    </div>
+    <div>
+        <h3>Yay, Page 5!</h3>
+    </div>
+    <div>
+        <h3>Yay, Page 6!</h3>
+    </div>
+    <div>
+        <h3>Yay, Page 7!</h3>
+    </div>
+    <div>
+        <h3>Yay, Page 8!</h3>
+    </div>
+    <div>
+        <h3>Yay, Page 9!</h3>
+    </div>
+    <div>
+        <h3>Yay, Page 10!</h3>
+    </div>
+    <div>
+        <h3>Yay, Page 11!</h3>
+    </div>
+    <div>
+        <h3>Yay, Page 12!</h3>
+    </div>
+    <div>
+        <h3>Yay, Page 13!</h3>
+    </div>
+</div>
+<div id="customNext">customNext</div>
+<div id="customPrev">customPrev</div>
+<div id="customPause">customPause</div>
+<div id="customPlay">customPlay</div>
+<div id="customMenu">customMenu</div>
+
+<script>
+$(function() {
+    //single book
+    $('#mybook').booklet({
+	name:"Booklet",
+	width:"800",
+	height:"600",
+	startingPage:1,
+	easing: "easeInOutExpo",
+	closedFrontTitle: "Start",
+	autoCenter: true,
+	closed: true,
+	//pagePadding:50,
+	// pageNumbers:false,
+	//pageBorder:5,
+    // manual: false,                    //- 手动翻页
+    // hovers: false,
+    hoverWidth: 120,
+    // hoverSpeed: 1000,
+    // hoverClick: false,                 //- 只能手动翻页，不能点击翻页
+    overlays: true,                       //- 
+    tabs: true,                           //- 在小册子的顶部增加上一页、下一页按钮
+    tabWidth: 100,                        //- 设置翻页按钮宽度
+    tabHeight: 50,                        //- 设置翻页按钮高度
+    nextControlText: "&gt;",              //- 下一页上的文字，可以是文本或者&gt; &lt;或者'<'、'>''
+    previousControlText: "<",             //- 上一页上的文字，可以是文本或者&gt; &lt;或者'<'、'>''      
+    nextControlTitle: "Forward",          //- 下一页上的title
+    previousControlTitle: "Back",         //- 上一页上的title
+    arrows: true,                         //- 小册子左右两侧增加一个傻逼的大箭头
+    arrowsHide: true,                     //- 上面的傻逼箭头，悬停显示
+    // cursor: "move",                       //- 光标的样式
+    hash: true,                           //- hash值控制
+    hashTitleText: " - ",                    //- hash值显示在标题上
+    next: "#customNext",                  //- 自定义下一页按钮
+    prev: "#customPrev",                  //- 自定义上一页按钮
+    auto: true,                           //- 自动播放设置
+    delay: 1000,                           //- 自动翻页间隔时间
+    pause: "#customPause",                //- 暂停播放
+    play: "#customPlay",                  //- 开始播放
+    menu: "#customMenu",
+    pageSelector: true,                   //- 页码选择器
+    chapterSelector: true,                //- 扉页和最后一页的选择器
+    shadows: false,
+    });
+
+
+    // 方法
+    $(document).on('click',function(){
+        // $('#mybook').booklet('destroy');     //- 破坏booklet，回到最初的html样式
+        // $('#mybook').booklet('disable');     //- 无法使用booklet，样式还在
+        // $('#mybook').booklet('prev');        //- 上一页
+        // $('#mybook').booklet('next');           //- 下一页
+        // $('#mybook').booklet("gotopage", 'end')     //- 翻到第index页，可以是数字或者字符串start和end
+        // $('#mybook').booklet("add", 1, '<div>haha,i am new</div>')    //- 增加一页
+        // $('#mybook').booklet("remove", 1);                           //- 删除一页
+    })
+    //multiple books with ID's
+    $('#mybook1, #mybook2').booklet();
+
+    //multiple books with a class
+    $('.mycustombooks').booklet();
+});
+
+</script>
+</body>
+</html>
