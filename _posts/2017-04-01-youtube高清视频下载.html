@@ -1,0 +1,28 @@
+---
+layout: default
+title: youtube高清视频下载
+---
+
+<p>youtube-dl安装</p>
+<pre>
+sudo wget https://yt-dl.org/downloads/latest/youtube-dl -O /usr/local/bin/youtube-dl
+sudo chmod a+rx /usr/local/bin/youtube-dl
+</pre>
+
+<p>youtube-dl帮助</p>
+<pre>
+youtube-dl -h
+</pre>
+
+<p>youtube-dl查询视频格式</p>
+<pre>
+youtube-dl -F url
+</pre>
+
+<p>youtube-dl 下载视频</p>
+<pre>
+youtube-dl -f 22 url
+</pre>
+
+
+<p>{{ page.date | date_to_string }}</p>
