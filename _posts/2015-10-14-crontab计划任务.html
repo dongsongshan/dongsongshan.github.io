@@ -1,0 +1,46 @@
+---
+layout: default
+title: crontab定时任务
+---
+1.1 /etc/Crontab文件
+<pre>
+cat /etc/crontab
+//返回如下
+SHELL=/bin/bash
+PATH=/sbin:/bin:/usr/sbin:/usr/bin
+MAILTO=root
+HOME=/
+# run-parts
+01 * * * * root run-parts /etc/cron.hourly
+02 4 * * * root run-parts /etc/cron.daily
+22 4 * * 0 root run-parts /etc/cron.weekly
+42 4 1 * * root run-parts /etc/cron.monthly
+</pre>
+<p>
+在/etc目录下有一个crontab文件，这里存放有系统运行的一些调度程序。每个用户可以建立自己的调度crontab（在/var/spool/cron目录下）。
+</p>
+
+
+2.1 Crontab基本语法
+
+<pre>
+crontab -e //编辑任务计划
+crontab -l //展示任务列表
+</pre>
+
+
+<pre>
+crontab -h  //这个命令可能不对，但是也能返回帮助信息
+//返回如下
+usage:  crontab [-u user] file
+        crontab [-u user] [ -e | -l | -r ]
+                (default operation is replace, per 1003.2)
+        -e      (edit user's crontab)
+        -l      (list user's crontab)
+        -r      (delete user's crontab)
+        -i      (prompt before deleting user's crontab)
+        -s      (selinux context)
+</pre>
+
+
+<p>{{ page.date | date_to_string }}</p>
