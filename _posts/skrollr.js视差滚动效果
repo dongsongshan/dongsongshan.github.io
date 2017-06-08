@@ -1,0 +1,28 @@
+http://www.xbiao.com/static/omega2016/
+
+
+<script src="../../js/static/omega2016/skrollr.min.js"></script>
+
+<script type="text/javascript">
+    var s = skrollr.init();
+</script>
+
+<script type="text/javascript">
+    if(!/AppleWebKit.*Mobile/i.test(navigator.userAgent) || (/MIDP|SymbianOS|NOKIA|SAMSUNG|LG|NEC|TCL|Alcatel|BIRD|DBTEL|Dopod|PHILIPS|HAIER|LENOVO|MOT-|Nokia|SonyEricsson|SIE-|Amoi|ZTE/.test(navigator.userAgent))){
+		var s = skrollr.init();
+	}
+</script>
+
+
+
+
+<div class="box box3" data-100="left:1000px; opacity: 0; filter:alpha(opacity=0);" data-500="left:782px;opacity: 1; filter:alpha(opacity=100);">test</div>
+
+
+data-100="left:1000px; opacity: 0; filter:alpha(opacity=0);" data-500="left:782px;opacity: 1; filter:alpha(opacity=100);"
+
+data-100距离文档顶部100px，动画开始
+data-100距离文档顶部500px，动画结束
+
+
+https://github.com/Prinzhorn/skrollr
