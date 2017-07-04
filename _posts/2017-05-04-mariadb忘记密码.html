@@ -1,0 +1,34 @@
+---
+layout: default
+title: mariadb忘记root密码
+---
+1,修改/etc/my.cnf
+<pre>
+vim /etc/my.cnf
+</pre>
+<p>
+找到[mysqld]，在后面添加skip-grant-tables
+</p>
+<pre>
+[mysqld]
+
+skip-grant-tables
+</pre>
+
+2,进入数据库
+
+<pre>
+mysql -u root
+//进入user数据库
+use user
+//查看root密码
+select * from user;
+
+
+
+</pre>
+
+
+
+
+<p>{{ page.date | date_to_string }}</p>
