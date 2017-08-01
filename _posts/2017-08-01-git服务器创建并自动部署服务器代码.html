@@ -1,0 +1,38 @@
+---
+layout: default
+title: git服务器创建并自动部署服务器代码
+---
+
+<p>一，创建git仓库</p>
+<p>1，方法一</p>
+<pre>sudo git init --bare xxx.git
+// 成功创建 返回如下
+Initialized empty Git repository in /www/dongshushu/git/xxx.git/
+</pre>
+
+
+<p>1，方法二</p>
+<pre>mkdir xxx.git
+cd xxx.git
+git init --bare
+// 返回如下
+Initialized empty Git repository in /www/dongshushu/git/xxx.git/
+</pre>
+<p>
+	查看一下xxx.git都有那些文件
+</p>
+<pre>total 32
+drwxr-xr-x 2 root root 4096 Aug  1 15:35 branches
+-rw-r--r-- 1 root root   66 Aug  1 15:35 config
+-rw-r--r-- 1 root root   73 Aug  1 15:35 description
+-rw-r--r-- 1 root root   23 Aug  1 15:35 HEAD
+drwxr-xr-x 2 root root 4096 Aug  1 15:35 hooks
+drwxr-xr-x 2 root root 4096 Aug  1 15:35 info
+drwxr-xr-x 4 root root 4096 Aug  1 15:35 objects
+drwxr-xr-x 4 root root 4096 Aug  1 15:35 refs</pre>
+
+
+
+
+
+<p>{{ page.date | date_to_string }}</p>
