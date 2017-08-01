@@ -3,25 +3,25 @@ layout: default
 title: git服务器创建并自动部署服务器代码
 ---
 
-<p>一，创建git仓库</p>
-<p>1，方法一</p>
-<pre>sudo git init --bare xxx.git
+<h2>一，创建服务器git仓库</h2>
+<h3>方法一</h3>
+<pre>sudo git init --bare wp-content.git
 // 成功创建 返回如下
-Initialized empty Git repository in /www/dongshushu/git/xxx.git/
+Initialized empty Git repository in /www/dongshushu/git/wp-content.git/
 </pre>
 
 
-<p>1，方法二</p>
-<pre>mkdir xxx.git
-cd xxx.git
+<h3>方法二</h3>
+<pre>mkdir wp-content.git
+cd wp-content.git
 git init --bare
-// 返回如下
-Initialized empty Git repository in /www/dongshushu/git/xxx.git/
+// 成功创建 返回如下
+Initialized empty Git repository in /www/dongshushu/git/wp-content.git/
 </pre>
 <p>
-	查看一下xxx.git都有那些文件
+	查看一下wp-content.git都有那些文件
 </p>
-<pre>total 32
+<pre>
 drwxr-xr-x 2 root root 4096 Aug  1 15:35 branches
 -rw-r--r-- 1 root root   66 Aug  1 15:35 config
 -rw-r--r-- 1 root root   73 Aug  1 15:35 description
@@ -30,6 +30,72 @@ drwxr-xr-x 2 root root 4096 Aug  1 15:35 hooks
 drwxr-xr-x 2 root root 4096 Aug  1 15:35 info
 drwxr-xr-x 4 root root 4096 Aug  1 15:35 objects
 drwxr-xr-x 4 root root 4096 Aug  1 15:35 refs</pre>
+
+<p>新建用户和用户组</p>
+
+<h3>更改用户权限</h3>
+<p>因为这个git服务器是整个团队维护，所以就不使用root用户了，改用git用户</p>
+<pre>chown -R git:git wp-content.git</pre>
+<p>查看wp-content.git的用户和用户组</p>
+<pre>ll wp-content.git</pre>
+<p>
+	wp-content.git下文件用户和用户组变为git
+</p>
+<pre>drwxr-xr-x 2 git git 4096 Aug  1 15:49 branches
+-rw-r--r-- 1 git git   66 Aug  1 15:49 config
+-rw-r--r-- 1 git git   73 Aug  1 15:49 description
+-rw-r--r-- 1 git git   23 Aug  1 15:49 HEAD
+drwxr-xr-x 2 git git 4096 Aug  1 15:49 hooks
+drwxr-xr-x 2 git git 4096 Aug  1 15:49 info
+drwxr-xr-x 4 git git 4096 Aug  1 15:49 objects
+drwxr-xr-x 4 git git 4096 Aug  1 15:49 refs
+</pre>
+
+
+<h2>二，在本地克隆仓库</h2>
+<pre>//进入桌面
+cd ~/desktop
+git clone git@dongshushu.com:/www/dongshushu/git/wp-content.git
+//返回如下
+Cloning into 'wp-content'...
+//输入git用户的密码
+git@dongshushu.com's password:
+warning: You appear to have cloned an empty repository.
+Checking connectivity... done.
+</pre>
+<p>温馨提示:如果忘记忘记用户git的密码,在服务器使用passwd git创建新密码</p>
+<p>发下桌面有一个wp-content的空文件夹，进入文件夹,创建点儿东西，然后push到服务器</p>
+<pre>
+//进入文件夹
+cd wp-content
+//创建hello.txt文件
+touch hello.txt
+//使用git增加注释并push到服务器
+git add hello.txt
+git commit -m 'create hello.txt'
+git push
+</pre>
+<p>第一次提交可能会报错如下</p>
+<pre>
+git@dongshushu.com's password:
+No refs in common and none specified; doing nothing.
+Perhaps you should specify a branch such as 'master'.
+fatal: The remote end hung up unexpectedly
+error: failed to push some refs to 'git@dongshushu.com:/www/dongshushu/git/wp-content.git'
+</pre>
+<p>用如下代码提交</p>
+<pre>git push origin master</pre>
+
+<h2>三，服务器clone代码</h2>
+<p>进入相关路径,因为是在同一个服务器所以使用相对路径或绝对路径就可以直接clone</p>
+<pre>clone /www/dongshushu/git/wp-content.git</pre>
+<p>不出意外，我们会看到wp-content文件夹，并在其中找到hello.txt文件。以后再wp-content文件夹下执行git pull就可以更新了</p>
+
+<h2>四，服务器自动部署</h2>
+<p>如果每次本地push，都在服务器上去pull，那会累死人的</p>
+<p>还好git提供了hook(钩子)</p>
+
+
 
 
 
