@@ -92,12 +92,37 @@ error: failed to push some refs to 'git@dongshushu.com:/www/dongshushu/git/wp-co
 <p>不出意外，我们会看到wp-content文件夹，并在其中找到hello.txt文件。以后再wp-content文件夹下执行git pull就可以更新了</p>
 
 <h2>四，服务器自动部署</h2>
-<p>如果每次本地push，都在服务器上去pull，那会累死人的</p>
-<p>还好git提供了hook(钩子)</p>
+<p>如果每次本地push，都在服务器上去pull，那会累死人的，还好git提供了hook(钩子)</p>
+<pre>
+cd wp-content.git/hooks
+ll
+//返回，以下都是官方提供的示例，用的话需要去掉后缀.sample
+-rwxr-xr-x 1 git git  478 Aug  1 15:49 applypatch-msg.sample
+-rwxr-xr-x 1 git git  896 Aug  1 15:49 commit-msg.sample
+-rwxr-xr-x 1 git git  189 Aug  1 15:49 post-update.sample
+-rwxr-xr-x 1 git git  424 Aug  1 15:49 pre-applypatch.sample
+-rwxr-xr-x 1 git git 1642 Aug  1 15:49 pre-commit.sample
+-rwxr-xr-x 1 git git 1239 Aug  1 15:49 prepare-commit-msg.sample
+-rwxr-xr-x 1 git git 1348 Aug  1 15:49 pre-push.sample
+-rwxr-xr-x 1 git git 4951 Aug  1 15:49 pre-rebase.sample
+-rwxr-xr-x 1 git git 3610 Aug  1 15:49 update.sample
+</pre>
 
+<p>新建post-receive</p>
+<pre>vim post-receive</pre>
+<pre>
+#!/bin/sh
+DEPLOY_PATH=/www/dongshushu/wp-content
 
-
-
+unset  GIT_DIR #这条命令很重要
+cd $DEPLOY_PATH
+git reset --hard
+git pull
+#chown www:www -R $DEPLOY_PATH
+</pre>
+<p>注意此文件的用户组,还有权限，并修改</p>
+<pre>chown -R git:git post-receive</pre>
+<pre>chmod a+x post-receive</pre>
 
 
 
