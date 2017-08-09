@@ -89,4 +89,43 @@ ssh-copy-id 用户名@ip
 
 
 
+<p>----------------------github免密码-------------------</p>
+
+<pre>//cd 仓库dir
+cd .git
+vim config
+</pre>
+
+
+<pre>// 修改url地址为ssh方式
+[core]
+        repositoryformatversion = 0
+        filemode = false
+        bare = false
+        logallrefupdates = true
+        symlinks = false
+        ignorecase = true
+        hideDotFiles = dotGitOnly
+[remote "origin"]
+        <b>url = git@github.com:dongsongshan/dongsongshan.github.io</b>
+        fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "master"]
+        remote = origin
+        merge = refs/heads/master
+</pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <p>{{ page.date | date_to_string }}</p>
