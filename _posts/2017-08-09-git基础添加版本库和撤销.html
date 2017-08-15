@@ -1,0 +1,136 @@
+---
+layout: default
+title: git基础添加版本库和撤销
+---
+
+<h3>前言</h3>
+<p>git版本的基础知识</p>
+
+<pre>
+----------          ----------            ----------
+- 工作区 -          - 暂存区 -            - 版本区 -
+----------          ----------            ----------
+//创建并进入文件夹learngit
+mkdir learngit && cd learngit
+
+
+//vim新建readme.txt并写上hello
+cat readme.txt
+hello
+
+
+// git add添加到暂存区
+git add .
+// git commit添加到版本去
+git commit -m 'add readme.txt'
+</pre>
+
+
+<h3>一，撤销工作区的修改（没有add，没有commit）</h3>
+<pre>
+//编辑readme.txt文件，追加world
+cat readme.txt
+hello world
+// git status 查看git状态
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   readme.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+</pre>
+
+<pre>
+//撤销工作区修改
+$git checkout -- readme.txt
+</pre>
+
+
+<h3>二，撤销暂存区（有add，没有commit）</h3>
+<pre>
+//再次编辑readme.txt文件，追加world
+cat readme.txt
+hello world
+//add到暂存区
+git add readme.txt
+//git status
+$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   readme.txt
+
+</pre>
+
+<pre>
+//撤销掉暂存区
+$git reset HEAD readme.txt
+//现在到了第一部分状态，如果还需要撤销工作区，则使用git checkout -- <file>
+</pre>
+
+
+
+<h3>三，撤回版本（有add，有commit）</h3>
+
+<pre>
+//当已经提交到版本中的撤销
+//查看历史版本
+git log --pretty=oneline
+18922e3e9e61b1751f0fd303aee748ebfccc40ab add readme.txt
+7a5f43cb31064668cad71248938a4d689aaf6145 conflict fixed
+64c89a8d442c4218317ef411464110ae6e5819f5 & simple
+d9260815d60761265756e87d70f943c383c3a634 AND simple
+26e7d741e3e04a83b65cf5b0dff33b2890220c85 branch test
+9aa361d1d953ad3e690589eae089803e593736aa 第二次add。提交
+99d92f4ddc44b1e30440c17a62f714af54f8c2bb git tracks changes
+69cb4dd23f0d49c1aca10caa1ef94a67fb0a9d85 understand how stage works
+95df0c84c7e04daac53429e3950176c178bcbee8 append GPL
+e3b37158391390420d80d5c3b3b4e4546b8c4824 add distributed
+ffc2573160881a9d91b84853d5b62f84075044b2 wrote areadme file
+</pre>
+<pre>
+// HEAD^表示返一层  HEAD^^表示返两层，依次类推，数量多的话可能数不过来，就用HEAD~100
+
+<b>git reset --hard HEAD^</b>
+
+//再次查看历史版本，“add readme.txt” 这个版本已经消失了
+$ git log --pretty=oneline
+7a5f43cb31064668cad71248938a4d689aaf6145 conflict fixed
+64c89a8d442c4218317ef411464110ae6e5819f5 & simple
+d9260815d60761265756e87d70f943c383c3a634 AND simple
+26e7d741e3e04a83b65cf5b0dff33b2890220c85 branch test
+9aa361d1d953ad3e690589eae089803e593736aa 第二次add。提交
+99d92f4ddc44b1e30440c17a62f714af54f8c2bb git tracks changes
+69cb4dd23f0d49c1aca10caa1ef94a67fb0a9d85 understand how stage works
+95df0c84c7e04daac53429e3950176c178bcbee8 append GPL
+e3b37158391390420d80d5c3b3b4e4546b8c4824 add distributed
+ffc2573160881a9d91b84853d5b62f84075044b2 wrote areadme file
+</pre>
+<p>成功退回一个版本，仿佛从20世纪到了19世纪，但是怎么倒20世纪呢？利用原来的版本号回去</p>
+
+<pre>
+git reset --hard 18922
+// git status 查一下，是不是回到了20世纪
+</pre>
+
+<p>如果清屏了，可以利用<b>git reflog</b>查看历史操作， 可以在里面找到版本号</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p>{{ page.date | date_to_string }}</p>
