@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Path Demo</title>
+    <style>
+        #input {
+            position: fixed;
+            bottom: 25px;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            padding: 0 25px;
+            font-size: 32px;
+            border: none;
+            border-top: 2px solid gray;
+
+        }
+    </style>
+</head>
+<body>
+    <svg xmlns="http://www.w3.org/2000/svg" height="800" width=“1000”>
+        <path id="path" d="M 0 0 L 100 100" stroke="green" fill="none" stroke-width="2"></path>
+    </svg>
+ 
+    <input id="input" type="text" value="M 0 0 L 100 100">
+ 
+    <script>
+        input.addEventListener('input', function() {
+            path.setAttribute('d', input.value);
+        }, false);
+    </script>
+</body>
+</html>
